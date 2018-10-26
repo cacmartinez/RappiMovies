@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BEE71A0D3AFA5708832D4E7 /* Pods_RappiMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */; };
 		7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3BF21838188002AE2E8 /* AppDelegate.swift */; };
 		7798E3C221838188002AE2E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C121838188002AE2E8 /* ViewController.swift */; };
 		7798E3C521838189002AE2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3C321838188002AE2E8 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3237923B3956AA4A32D53F45 /* Pods-RappiMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.release.xcconfig"; sourceTree = "<group>"; };
 		7798E3BC21838188002AE2E8 /* RappiMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7798E3BF21838188002AE2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7798E3C121838188002AE2E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		7798E3D32183818E002AE2E8 /* RappiMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappiMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7798E3D72183818E002AE2E8 /* RappiMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiMoviesTests.swift; sourceTree = "<group>"; };
 		7798E3D92183818E002AE2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BEE71A0D3AFA5708832D4E7 /* Pods_RappiMovies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,8 @@
 				7798E3BE21838188002AE2E8 /* RappiMovies */,
 				7798E3D62183818E002AE2E8 /* RappiMoviesTests */,
 				7798E3BD21838188002AE2E8 /* Products */,
+				8C8B3A295B37B16E105BA699 /* Pods */,
+				D3146E49341C5212CC3E5F08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +106,23 @@
 			path = RappiMoviesTests;
 			sourceTree = "<group>";
 		};
+		8C8B3A295B37B16E105BA699 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */,
+				3237923B3956AA4A32D53F45 /* Pods-RappiMovies.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D3146E49341C5212CC3E5F08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +130,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7798E3DC2183818E002AE2E8 /* Build configuration list for PBXNativeTarget "RappiMovies" */;
 			buildPhases = (
+				E047A6EDFB8CA74108FECB35 /* [CP] Check Pods Manifest.lock */,
 				7798E3B821838188002AE2E8 /* Sources */,
 				7798E3B921838188002AE2E8 /* Frameworks */,
 				7798E3BA21838188002AE2E8 /* Resources */,
@@ -194,6 +219,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E047A6EDFB8CA74108FECB35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RappiMovies-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7798E3B821838188002AE2E8 /* Sources */ = {
@@ -362,6 +412,7 @@
 		};
 		7798E3DD2183818E002AE2E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -379,6 +430,7 @@
 		};
 		7798E3DE2183818E002AE2E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3237923B3956AA4A32D53F45 /* Pods-RappiMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
