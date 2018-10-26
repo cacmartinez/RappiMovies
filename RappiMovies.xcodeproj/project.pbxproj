@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3BF21838188002AE2E8 /* AppDelegate.swift */; };
+		7798E3C221838188002AE2E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C121838188002AE2E8 /* ViewController.swift */; };
+		7798E3C521838189002AE2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3C321838188002AE2E8 /* Main.storyboard */; };
+		7798E3C821838189002AE2E8 /* RappiMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C621838189002AE2E8 /* RappiMovies.xcdatamodeld */; };
+		7798E3CA2183818E002AE2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3C92183818E002AE2E8 /* Assets.xcassets */; };
+		7798E3CD2183818E002AE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3CB2183818E002AE2E8 /* LaunchScreen.storyboard */; };
+		7798E3D82183818E002AE2E8 /* RappiMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3D72183818E002AE2E8 /* RappiMoviesTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7798E3D42183818E002AE2E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7798E3B421838188002AE2E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7798E3BB21838188002AE2E8;
+			remoteInfo = RappiMovies;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7798E3BC21838188002AE2E8 /* RappiMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7798E3BF21838188002AE2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7798E3C121838188002AE2E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7798E3C421838188002AE2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7798E3C721838189002AE2E8 /* RappiMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RappiMovies.xcdatamodel; sourceTree = "<group>"; };
+		7798E3C92183818E002AE2E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7798E3CC2183818E002AE2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7798E3CE2183818E002AE2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7798E3D32183818E002AE2E8 /* RappiMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappiMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7798E3D72183818E002AE2E8 /* RappiMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiMoviesTests.swift; sourceTree = "<group>"; };
+		7798E3D92183818E002AE2E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7798E3B921838188002AE2E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7798E3D02183818E002AE2E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7798E3B321838188002AE2E8 = {
+			isa = PBXGroup;
+			children = (
+				7798E3BE21838188002AE2E8 /* RappiMovies */,
+				7798E3D62183818E002AE2E8 /* RappiMoviesTests */,
+				7798E3BD21838188002AE2E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7798E3BD21838188002AE2E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7798E3BC21838188002AE2E8 /* RappiMovies.app */,
+				7798E3D32183818E002AE2E8 /* RappiMoviesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7798E3BE21838188002AE2E8 /* RappiMovies */ = {
+			isa = PBXGroup;
+			children = (
+				7798E3BF21838188002AE2E8 /* AppDelegate.swift */,
+				7798E3C121838188002AE2E8 /* ViewController.swift */,
+				7798E3C321838188002AE2E8 /* Main.storyboard */,
+				7798E3C92183818E002AE2E8 /* Assets.xcassets */,
+				7798E3CB2183818E002AE2E8 /* LaunchScreen.storyboard */,
+				7798E3CE2183818E002AE2E8 /* Info.plist */,
+				7798E3C621838189002AE2E8 /* RappiMovies.xcdatamodeld */,
+			);
+			path = RappiMovies;
+			sourceTree = "<group>";
+		};
+		7798E3D62183818E002AE2E8 /* RappiMoviesTests */ = {
+			isa = PBXGroup;
+			children = (
+				7798E3D72183818E002AE2E8 /* RappiMoviesTests.swift */,
+				7798E3D92183818E002AE2E8 /* Info.plist */,
+			);
+			path = RappiMoviesTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7798E3BB21838188002AE2E8 /* RappiMovies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7798E3DC2183818E002AE2E8 /* Build configuration list for PBXNativeTarget "RappiMovies" */;
+			buildPhases = (
+				7798E3B821838188002AE2E8 /* Sources */,
+				7798E3B921838188002AE2E8 /* Frameworks */,
+				7798E3BA21838188002AE2E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RappiMovies;
+			productName = RappiMovies;
+			productReference = 7798E3BC21838188002AE2E8 /* RappiMovies.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7798E3D22183818E002AE2E8 /* RappiMoviesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7798E3DF2183818E002AE2E8 /* Build configuration list for PBXNativeTarget "RappiMoviesTests" */;
+			buildPhases = (
+				7798E3CF2183818E002AE2E8 /* Sources */,
+				7798E3D02183818E002AE2E8 /* Frameworks */,
+				7798E3D12183818E002AE2E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7798E3D52183818E002AE2E8 /* PBXTargetDependency */,
+			);
+			name = RappiMoviesTests;
+			productName = RappiMoviesTests;
+			productReference = 7798E3D32183818E002AE2E8 /* RappiMoviesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7798E3B421838188002AE2E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Compean;
+				TargetAttributes = {
+					7798E3BB21838188002AE2E8 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					7798E3D22183818E002AE2E8 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 7798E3BB21838188002AE2E8;
+					};
+				};
+			};
+			buildConfigurationList = 7798E3B721838188002AE2E8 /* Build configuration list for PBXProject "RappiMovies" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7798E3B321838188002AE2E8;
+			productRefGroup = 7798E3BD21838188002AE2E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7798E3BB21838188002AE2E8 /* RappiMovies */,
+				7798E3D22183818E002AE2E8 /* RappiMoviesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7798E3BA21838188002AE2E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7798E3CD2183818E002AE2E8 /* LaunchScreen.storyboard in Resources */,
+				7798E3CA2183818E002AE2E8 /* Assets.xcassets in Resources */,
+				7798E3C521838189002AE2E8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7798E3D12183818E002AE2E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7798E3B821838188002AE2E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7798E3C821838189002AE2E8 /* RappiMovies.xcdatamodeld in Sources */,
+				7798E3C221838188002AE2E8 /* ViewController.swift in Sources */,
+				7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7798E3CF2183818E002AE2E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7798E3D82183818E002AE2E8 /* RappiMoviesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7798E3D52183818E002AE2E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7798E3BB21838188002AE2E8 /* RappiMovies */;
+			targetProxy = 7798E3D42183818E002AE2E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7798E3C321838188002AE2E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7798E3C421838188002AE2E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7798E3CB2183818E002AE2E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7798E3CC2183818E002AE2E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7798E3DA2183818E002AE2E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7798E3DB2183818E002AE2E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7798E3DD2183818E002AE2E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RappiMovies/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.compean.RappiMovies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7798E3DE2183818E002AE2E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RappiMovies/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.compean.RappiMovies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7798E3E02183818E002AE2E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RappiMoviesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.compean.RappiMoviesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RappiMovies.app/RappiMovies";
+			};
+			name = Debug;
+		};
+		7798E3E12183818E002AE2E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = RappiMoviesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.compean.RappiMoviesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RappiMovies.app/RappiMovies";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7798E3B721838188002AE2E8 /* Build configuration list for PBXProject "RappiMovies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7798E3DA2183818E002AE2E8 /* Debug */,
+				7798E3DB2183818E002AE2E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7798E3DC2183818E002AE2E8 /* Build configuration list for PBXNativeTarget "RappiMovies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7798E3DD2183818E002AE2E8 /* Debug */,
+				7798E3DE2183818E002AE2E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7798E3DF2183818E002AE2E8 /* Build configuration list for PBXNativeTarget "RappiMoviesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7798E3E02183818E002AE2E8 /* Debug */,
+				7798E3E12183818E002AE2E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7798E3C621838189002AE2E8 /* RappiMovies.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7798E3C721838189002AE2E8 /* RappiMovies.xcdatamodel */,
+			);
+			currentVersion = 7798E3C721838189002AE2E8 /* RappiMovies.xcdatamodel */;
+			path = RappiMovies.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7798E3B421838188002AE2E8 /* Project object */;
+}
