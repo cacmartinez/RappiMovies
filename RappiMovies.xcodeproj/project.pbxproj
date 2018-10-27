@@ -33,6 +33,13 @@
 		7798E4022183D848002AE2E8 /* TMDBURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4012183D848002AE2E8 /* TMDBURLProvider.swift */; };
 		7798E4032183D848002AE2E8 /* TMDBURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4012183D848002AE2E8 /* TMDBURLProvider.swift */; };
 		7798E4072183DED3002AE2E8 /* TMDBURLProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4062183DED3002AE2E8 /* TMDBURLProviderTests.swift */; };
+		7798E4092183EA35002AE2E8 /* TMDBConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4082183EA35002AE2E8 /* TMDBConfigurationService.swift */; };
+		7798E40D2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E40C2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift */; };
+		7798E4102183F0E1002AE2E8 /* NetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E40F2183F0E1002AE2E8 /* NetworkFetcher.swift */; };
+		7798E4172184D8A1002AE2E8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4162184D8A1002AE2E8 /* Result.swift */; };
+		7798E4182184D8A1002AE2E8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4162184D8A1002AE2E8 /* Result.swift */; };
+		7798E41B2184D9EC002AE2E8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E41A2184D9EC002AE2E8 /* Service.swift */; };
+		7798E41C2184D9EC002AE2E8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E41A2184D9EC002AE2E8 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +76,11 @@
 		7798E3FC2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBURLProviderProtocol.swift; sourceTree = "<group>"; };
 		7798E4012183D848002AE2E8 /* TMDBURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBURLProvider.swift; sourceTree = "<group>"; };
 		7798E4062183DED3002AE2E8 /* TMDBURLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBURLProviderTests.swift; sourceTree = "<group>"; };
+		7798E4082183EA35002AE2E8 /* TMDBConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBConfigurationService.swift; sourceTree = "<group>"; };
+		7798E40C2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBApiConfigurationFetcher.swift; sourceTree = "<group>"; };
+		7798E40F2183F0E1002AE2E8 /* NetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
+		7798E4162184D8A1002AE2E8 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		7798E41A2184D9EC002AE2E8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +127,7 @@
 		7798E3BE21838188002AE2E8 /* RappiMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7798E40A2183ECFE002AE2E8 /* NetworkFetchers */,
 				7798E3FF2183D7AC002AE2E8 /* Helpers */,
 				7798E3FB2183CA53002AE2E8 /* Services */,
 				7798E3E92183A51A002AE2E8 /* Network */,
@@ -181,6 +194,8 @@
 		7798E3FB2183CA53002AE2E8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7798E4192184D9C3002AE2E8 /* Protocol */,
+				7798E4082183EA35002AE2E8 /* TMDBConfigurationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -188,6 +203,7 @@
 		7798E3FF2183D7AC002AE2E8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7798E4152184D878002AE2E8 /* Enums */,
 				7798E4002183D7BC002AE2E8 /* URL */,
 			);
 			path = Helpers;
@@ -216,6 +232,39 @@
 				7798E4062183DED3002AE2E8 /* TMDBURLProviderTests.swift */,
 			);
 			path = URLTests;
+			sourceTree = "<group>";
+		};
+		7798E40A2183ECFE002AE2E8 /* NetworkFetchers */ = {
+			isa = PBXGroup;
+			children = (
+				7798E40E2183F0C3002AE2E8 /* Protocol */,
+				7798E40C2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift */,
+			);
+			path = NetworkFetchers;
+			sourceTree = "<group>";
+		};
+		7798E40E2183F0C3002AE2E8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7798E40F2183F0E1002AE2E8 /* NetworkFetcher.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7798E4152184D878002AE2E8 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7798E4162184D8A1002AE2E8 /* Result.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		7798E4192184D9C3002AE2E8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7798E41A2184D9EC002AE2E8 /* Service.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		8C8B3A295B37B16E105BA699 /* Pods */ = {
@@ -364,13 +413,18 @@
 			files = (
 				7798E3C821838189002AE2E8 /* RappiMovies.xcdatamodeld in Sources */,
 				7798E3E72183A2DB002AE2E8 /* TMDBConfiguration.swift in Sources */,
+				7798E41B2184D9EC002AE2E8 /* Service.swift in Sources */,
+				7798E4102183F0E1002AE2E8 /* NetworkFetcher.swift in Sources */,
 				7798E3FD2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift in Sources */,
+				7798E4172184D8A1002AE2E8 /* Result.swift in Sources */,
 				7798E3C221838188002AE2E8 /* ViewController.swift in Sources */,
 				7798E3E421839357002AE2E8 /* MovieAbstract.swift in Sources */,
 				7798E3F12183A5F1002AE2E8 /* URLRequestHandler.swift in Sources */,
 				7798E4022183D848002AE2E8 /* TMDBURLProvider.swift in Sources */,
+				7798E4092183EA35002AE2E8 /* TMDBConfigurationService.swift in Sources */,
 				7798E3EE2183A598002AE2E8 /* NetworkClient.swift in Sources */,
 				7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */,
+				7798E40D2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift in Sources */,
 				7798E3EC2183A598002AE2E8 /* JSONNetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +434,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7798E3F22183A5F1002AE2E8 /* URLRequestHandler.swift in Sources */,
+				7798E41C2184D9EC002AE2E8 /* Service.swift in Sources */,
+				7798E4182184D8A1002AE2E8 /* Result.swift in Sources */,
 				7798E4072183DED3002AE2E8 /* TMDBURLProviderTests.swift in Sources */,
 				7798E3F52183A810002AE2E8 /* JSONNetworkClientTests.swift in Sources */,
 				7798E3E82183A2DB002AE2E8 /* TMDBConfiguration.swift in Sources */,

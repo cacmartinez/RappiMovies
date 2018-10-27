@@ -15,8 +15,8 @@ class JSONNetworkClientTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Wait for network client")
         
-        networkClient.get(url: URL(string: "test.com")!) { (response: Response<TMDBConfiguration>) in
-            switch response {
+        networkClient.get(url: URL(string: "test.com")!) { (result: Result<TMDBConfiguration>) in
+            switch result {
             case .Success(let configuration):
                 XCTAssertEqual(configuration.imageConfiguration.secureBaseURL, "https://image.tmdb.org/t/p/")
                 XCTAssertEqual(configuration.imageConfiguration.posterSizes, ["w92", "w154", "w185", "w342", "w500", "w780", "original"])
@@ -36,7 +36,7 @@ class JSONNetworkClientTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Wait for network client")
         
-        networkClient.get(url: URL(string: "test.com")!) { (response: Response<MovieAbstract>) in
+        networkClient.get(url: URL(string: "test.com")!) { (response: Result<MovieAbstract>) in
             switch response {
             case .Success(let movie):
                 XCTAssertEqual(movie.vote.count, 1583)

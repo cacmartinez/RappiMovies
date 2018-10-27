@@ -10,19 +10,19 @@ struct JSONNetworkClient: NetworkClient {
         self.dateFormatter = dateFormatter
     }
     
-    func get<T: Decodable>(url: URL, callback: @escaping (Response<T>) -> ()) {
+    func get<T: Decodable>(url: URL, callback: @escaping ResultBlock<T>) {
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeoutInterval)
         requestHandler.handle(request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    callback(Response.Error(error))
+                    callback(Result.Error(error))
                 } else {
                     guard let data = data else {
                         fatalError("Received empty data from successful response")
                     }
                     do {
                         let result = try self.decodeJSON(T.self, from:data)
-                        callback(Response.Success(result))
+                        callback(Result.Success(result))
                     } catch {
                         fatalError("Error decoding JSON check Decodable objects")
                     }
