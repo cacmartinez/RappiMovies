@@ -17,7 +17,11 @@ final class TMDBConfigurationService: Service {
         }
         
         networkFetcher.fetchConfiguration { [weak self] response in
-            self?.listeners.forEach({ listener in
+            guard let self = self else { return }
+            if case .Success(let configuration) = response {
+                self.persistanceFetcher.save(configuration)
+            }
+            self.listeners.forEach({ listener in
                 listener.serviceDidFinishFetching(with: response)
             })
         }
