@@ -40,6 +40,16 @@
 		7798E4182184D8A1002AE2E8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4162184D8A1002AE2E8 /* Result.swift */; };
 		7798E41B2184D9EC002AE2E8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E41A2184D9EC002AE2E8 /* Service.swift */; };
 		7798E41C2184D9EC002AE2E8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E41A2184D9EC002AE2E8 /* Service.swift */; };
+		7798E4212184E364002AE2E8 /* PersistanceFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4202184E364002AE2E8 /* PersistanceFetcher.swift */; };
+		7798E4222184E364002AE2E8 /* PersistanceFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4202184E364002AE2E8 /* PersistanceFetcher.swift */; };
+		7798E4262184E5A1002AE2E8 /* ModelArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4252184E5A1002AE2E8 /* ModelArchiver.swift */; };
+		7798E4272184E5A1002AE2E8 /* ModelArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4252184E5A1002AE2E8 /* ModelArchiver.swift */; };
+		7798E42A2184E9FD002AE2E8 /* ArchivableModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4292184E9FD002AE2E8 /* ArchivableModelWrapper.swift */; };
+		7798E42B2184E9FD002AE2E8 /* ArchivableModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E4292184E9FD002AE2E8 /* ArchivableModelWrapper.swift */; };
+		7798E42E2184FB83002AE2E8 /* ModelFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E42D2184FB83002AE2E8 /* ModelFileManager.swift */; };
+		7798E42F2184FB83002AE2E8 /* ModelFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E42D2184FB83002AE2E8 /* ModelFileManager.swift */; };
+		7798E43121861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E43021861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift */; };
+		7798E43221861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E43021861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +91,11 @@
 		7798E40F2183F0E1002AE2E8 /* NetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
 		7798E4162184D8A1002AE2E8 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		7798E41A2184D9EC002AE2E8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7798E4202184E364002AE2E8 /* PersistanceFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceFetcher.swift; sourceTree = "<group>"; };
+		7798E4252184E5A1002AE2E8 /* ModelArchiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelArchiver.swift; sourceTree = "<group>"; };
+		7798E4292184E9FD002AE2E8 /* ArchivableModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivableModelWrapper.swift; sourceTree = "<group>"; };
+		7798E42D2184FB83002AE2E8 /* ModelFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFileManager.swift; sourceTree = "<group>"; };
+		7798E43021861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBPersistanceConfigurationFetcher.swift; sourceTree = "<group>"; };
 		9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,7 +142,8 @@
 		7798E3BE21838188002AE2E8 /* RappiMovies */ = {
 			isa = PBXGroup;
 			children = (
-				7798E40A2183ECFE002AE2E8 /* NetworkFetchers */,
+				7798E4232184E4F1002AE2E8 /* Persistance */,
+				7798E41D2184E159002AE2E8 /* Fetchers */,
 				7798E3FF2183D7AC002AE2E8 /* Helpers */,
 				7798E3FB2183CA53002AE2E8 /* Services */,
 				7798E3E92183A51A002AE2E8 /* Network */,
@@ -265,6 +281,58 @@
 				7798E41A2184D9EC002AE2E8 /* Service.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7798E41D2184E159002AE2E8 /* Fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				7798E41E2184E166002AE2E8 /* PersistanceFetchers */,
+				7798E40A2183ECFE002AE2E8 /* NetworkFetchers */,
+			);
+			path = Fetchers;
+			sourceTree = "<group>";
+		};
+		7798E41E2184E166002AE2E8 /* PersistanceFetchers */ = {
+			isa = PBXGroup;
+			children = (
+				7798E43021861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift */,
+				7798E41F2184E32E002AE2E8 /* Protocol */,
+			);
+			path = PersistanceFetchers;
+			sourceTree = "<group>";
+		};
+		7798E41F2184E32E002AE2E8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7798E4202184E364002AE2E8 /* PersistanceFetcher.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7798E4232184E4F1002AE2E8 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				7798E4242184E4FC002AE2E8 /* FilePersistance */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		7798E4242184E4FC002AE2E8 /* FilePersistance */ = {
+			isa = PBXGroup;
+			children = (
+				7798E42C2184EA05002AE2E8 /* ModelWrapper */,
+				7798E4252184E5A1002AE2E8 /* ModelArchiver.swift */,
+				7798E42D2184FB83002AE2E8 /* ModelFileManager.swift */,
+			);
+			path = FilePersistance;
+			sourceTree = "<group>";
+		};
+		7798E42C2184EA05002AE2E8 /* ModelWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				7798E4292184E9FD002AE2E8 /* ArchivableModelWrapper.swift */,
+			);
+			path = ModelWrapper;
 			sourceTree = "<group>";
 		};
 		8C8B3A295B37B16E105BA699 /* Pods */ = {
@@ -415,7 +483,10 @@
 				7798E3E72183A2DB002AE2E8 /* TMDBConfiguration.swift in Sources */,
 				7798E41B2184D9EC002AE2E8 /* Service.swift in Sources */,
 				7798E4102183F0E1002AE2E8 /* NetworkFetcher.swift in Sources */,
+				7798E42A2184E9FD002AE2E8 /* ArchivableModelWrapper.swift in Sources */,
+				7798E43121861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */,
 				7798E3FD2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift in Sources */,
+				7798E4212184E364002AE2E8 /* PersistanceFetcher.swift in Sources */,
 				7798E4172184D8A1002AE2E8 /* Result.swift in Sources */,
 				7798E3C221838188002AE2E8 /* ViewController.swift in Sources */,
 				7798E3E421839357002AE2E8 /* MovieAbstract.swift in Sources */,
@@ -423,8 +494,10 @@
 				7798E4022183D848002AE2E8 /* TMDBURLProvider.swift in Sources */,
 				7798E4092183EA35002AE2E8 /* TMDBConfigurationService.swift in Sources */,
 				7798E3EE2183A598002AE2E8 /* NetworkClient.swift in Sources */,
+				7798E4262184E5A1002AE2E8 /* ModelArchiver.swift in Sources */,
 				7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */,
 				7798E40D2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift in Sources */,
+				7798E42E2184FB83002AE2E8 /* ModelFileManager.swift in Sources */,
 				7798E3EC2183A598002AE2E8 /* JSONNetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,14 +509,19 @@
 				7798E3F22183A5F1002AE2E8 /* URLRequestHandler.swift in Sources */,
 				7798E41C2184D9EC002AE2E8 /* Service.swift in Sources */,
 				7798E4182184D8A1002AE2E8 /* Result.swift in Sources */,
+				7798E4272184E5A1002AE2E8 /* ModelArchiver.swift in Sources */,
 				7798E4072183DED3002AE2E8 /* TMDBURLProviderTests.swift in Sources */,
+				7798E4222184E364002AE2E8 /* PersistanceFetcher.swift in Sources */,
 				7798E3F52183A810002AE2E8 /* JSONNetworkClientTests.swift in Sources */,
+				7798E42F2184FB83002AE2E8 /* ModelFileManager.swift in Sources */,
 				7798E3E82183A2DB002AE2E8 /* TMDBConfiguration.swift in Sources */,
 				7798E3EF2183A598002AE2E8 /* NetworkClient.swift in Sources */,
 				7798E4032183D848002AE2E8 /* TMDBURLProvider.swift in Sources */,
 				7798E3ED2183A598002AE2E8 /* JSONNetworkClient.swift in Sources */,
 				7798E3E521839357002AE2E8 /* MovieAbstract.swift in Sources */,
 				7798E3D82183818E002AE2E8 /* RappiMoviesTests.swift in Sources */,
+				7798E42B2184E9FD002AE2E8 /* ArchivableModelWrapper.swift in Sources */,
+				7798E43221861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */,
 				7798E3FE2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift in Sources */,
 				7798E3F82183A8E1002AE2E8 /* ConfigurationTestRequestHandler.swift in Sources */,
 				7798E3FA2183BE34002AE2E8 /* MovieAbstractTestRequestHandler.swift in Sources */,

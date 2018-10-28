@@ -10,7 +10,7 @@ struct TMDBConfiguration {
     let imageConfiguration: ImageConfiguration
 }
 
-extension TMDBConfiguration.ImageConfiguration: Decodable {
+extension TMDBConfiguration.ImageConfiguration: Codable {
     enum CodingKeys: String, CodingKey {
         case secureBaseURL = "secureBaseUrl"
         case backdropSizes
@@ -18,7 +18,7 @@ extension TMDBConfiguration.ImageConfiguration: Decodable {
     }
 }
 
-extension TMDBConfiguration: Decodable {
+extension TMDBConfiguration: Codable {
     enum CodingKeys: String, CodingKey {
         case imageConfiguration = "images"
     }

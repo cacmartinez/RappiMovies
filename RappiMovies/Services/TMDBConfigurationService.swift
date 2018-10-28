@@ -6,9 +6,16 @@ protocol TMDBConfigurationServiceListener: AnyObject {
 
 final class TMDBConfigurationService: Service {
     private let networkFetcher: TMDBApiConfigurationFetcher
+    private let persistanceFetcher: TMDBPersistanceConfigurationFetcher
     private var listeners: [TMDBConfigurationServiceListener] = []
     
     func fetchConfiguration() {
+        if let configuration = persistanceFetcher.fetchConfiguration() {
+            self.listeners.forEach({ listener in
+                listener.serviceDidFinishFetching(with: Result.Success(configuration))
+            })
+        }
+        
         networkFetcher.fetchConfiguration { [weak self] response in
             self?.listeners.forEach({ listener in
                 listener.serviceDidFinishFetching(with: response)
@@ -27,7 +34,8 @@ final class TMDBConfigurationService: Service {
         listeners.remove(at: index)
     }
     
-    init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol) {
+    init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol, dateFormatter: DateFormatter) {
         networkFetcher = TMDBApiConfigurationFetcher(networkClient: networkClient, urlProvider: urlProvider)
+        persistanceFetcher = TMDBPersistanceConfigurationFetcher(dateFormatter: dateFormatter)
     }
 }
