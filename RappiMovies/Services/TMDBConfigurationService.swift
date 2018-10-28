@@ -9,11 +9,13 @@ final class TMDBConfigurationService: Service {
     private let persistanceFetcher: TMDBPersistanceConfigurationFetcher
     private var listeners: [TMDBConfigurationServiceListener] = []
     
-    func fetchConfiguration() {
-        if let configuration = persistanceFetcher.fetchConfiguration() {
+    func fetchConfiguration(ignoringPersistance: Bool = false) {
+        if !ignoringPersistance,
+            let configuration = persistanceFetcher.fetchConfiguration() {
             self.listeners.forEach({ listener in
                 listener.serviceDidFinishFetching(with: Result.Success(configuration))
             })
+            return
         }
         
         networkFetcher.fetchConfiguration { [weak self] response in
