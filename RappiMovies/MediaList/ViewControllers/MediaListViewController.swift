@@ -1,14 +1,7 @@
-//
-//  ViewController.swift
-//  RappiMovies
-//
-//  Created by Compean on 10/26/18.
-//  Copyright © 2018 Compean. All rights reserved.
-//
-
 import UIKit
 
 class MediaListViewController: UIViewController {
+    let controller: MediaListController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +9,19 @@ class MediaListViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    init(controller: MediaListController) {
+        self.controller = controller
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        self.controller = nil
+        super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        controller.removeObservations()
+    }
 }
 

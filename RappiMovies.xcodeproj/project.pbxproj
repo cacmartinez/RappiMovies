@@ -14,6 +14,14 @@
 		7743807E2187EAEC006F6243 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743807D2187EAEC006F6243 /* AppContext.swift */; };
 		774380802187ED56006F6243 /* MediaListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743807F2187ED56006F6243 /* MediaListCoordinator.swift */; };
 		774380832187F0C3006F6243 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380822187F0C3006F6243 /* AppColors.swift */; };
+		774380852187F299006F6243 /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380842187F299006F6243 /* MovieListController.swift */; };
+		774380882187F2D1006F6243 /* MediaListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380872187F2D1006F6243 /* MediaListController.swift */; };
+		7743808B2187F3C4006F6243 /* MediaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743808A2187F3C4006F6243 /* MediaListViewModel.swift */; };
+		7743808E2187FA43006F6243 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743808D2187FA43006F6243 /* Observable.swift */; };
+		774380902187FD8E006F6243 /* MediaListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743808F2187FD8E006F6243 /* MediaListRowViewModel.swift */; };
+		774380932188002D006F6243 /* ImageURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380922188002D006F6243 /* ImageURLProvider.swift */; };
+		7743809521880C83006F6243 /* ViewModelActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743809421880C83006F6243 /* ViewModelActionable.swift */; };
+		7743809921880DAD006F6243 /* TMDBConfigurationServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743809821880DAD006F6243 /* TMDBConfigurationServiceController.swift */; };
 		7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3BF21838188002AE2E8 /* AppDelegate.swift */; };
 		7798E3C221838188002AE2E8 /* MediaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C121838188002AE2E8 /* MediaListViewController.swift */; };
 		7798E3C521838189002AE2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3C321838188002AE2E8 /* Main.storyboard */; };
@@ -83,6 +91,14 @@
 		7743807D2187EAEC006F6243 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		7743807F2187ED56006F6243 /* MediaListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCoordinator.swift; sourceTree = "<group>"; };
 		774380822187F0C3006F6243 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		774380842187F299006F6243 /* MovieListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
+		774380872187F2D1006F6243 /* MediaListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListController.swift; sourceTree = "<group>"; };
+		7743808A2187F3C4006F6243 /* MediaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewModel.swift; sourceTree = "<group>"; };
+		7743808D2187FA43006F6243 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7743808F2187FD8E006F6243 /* MediaListRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListRowViewModel.swift; sourceTree = "<group>"; };
+		774380922188002D006F6243 /* ImageURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLProvider.swift; sourceTree = "<group>"; };
+		7743809421880C83006F6243 /* ViewModelActionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelActionable.swift; sourceTree = "<group>"; };
+		7743809821880DAD006F6243 /* TMDBConfigurationServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBConfigurationServiceController.swift; sourceTree = "<group>"; };
 		7798E3BC21838188002AE2E8 /* RappiMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7798E3BF21838188002AE2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7798E3C121838188002AE2E8 /* MediaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +162,7 @@
 		774380722187E68A006F6243 /* MediaList */ = {
 			isa = PBXGroup;
 			children = (
+				774380892187F34D006F6243 /* ViewModels */,
 				774380762187E6E4006F6243 /* Coordinator */,
 				774380752187E6B1006F6243 /* Views */,
 				774380742187E6A8006F6243 /* ViewControllers */,
@@ -157,6 +174,8 @@
 		774380732187E69F006F6243 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				774380862187F2B4006F6243 /* Protocol */,
+				774380842187F299006F6243 /* MovieListController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +211,47 @@
 			path = AppColors;
 			sourceTree = "<group>";
 		};
+		774380862187F2B4006F6243 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				774380872187F2D1006F6243 /* MediaListController.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		774380892187F34D006F6243 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7743808A2187F3C4006F6243 /* MediaListViewModel.swift */,
+				7743808F2187FD8E006F6243 /* MediaListRowViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7743808C2187FA28006F6243 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				7743808D2187FA43006F6243 /* Observable.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		774380912187FF24006F6243 /* ImageURL */ = {
+			isa = PBXGroup;
+			children = (
+				774380922188002D006F6243 /* ImageURLProvider.swift */,
+			);
+			path = ImageURL;
+			sourceTree = "<group>";
+		};
+		7743809721880D5F006F6243 /* ServiceControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7743809821880DAD006F6243 /* TMDBConfigurationServiceController.swift */,
+			);
+			path = ServiceControllers;
+			sourceTree = "<group>";
+		};
 		7798E3B321838188002AE2E8 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +275,7 @@
 		7798E3BE21838188002AE2E8 /* RappiMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7743809721880D5F006F6243 /* ServiceControllers */,
 				774380722187E68A006F6243 /* MediaList */,
 				77E9D0AD2186D1F300B4907A /* ManagedObjects */,
 				7798E4232184E4F1002AE2E8 /* Persistance */,
@@ -297,6 +358,7 @@
 		7798E3FF2183D7AC002AE2E8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7743808C2187FA28006F6243 /* Observer */,
 				774380812187F098006F6243 /* AppColors */,
 				77C2709A2187BBC000E2A96F /* Protocols */,
 				7798E4152184D878002AE2E8 /* Enums */,
@@ -308,6 +370,7 @@
 		7798E4002183D7BC002AE2E8 /* URL */ = {
 			isa = PBXGroup;
 			children = (
+				774380912187FF24006F6243 /* ImageURL */,
 				7798E3FC2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift */,
 				7798E4012183D848002AE2E8 /* TMDBURLProvider.swift */,
 			);
@@ -422,6 +485,7 @@
 				77C270982187BB2E00E2A96F /* Expirable.swift */,
 				774380792187E7E6006F6243 /* Coordinator.swift */,
 				7743807B2187E8E0006F6243 /* CoordinatorPresenter.swift */,
+				7743809421880C83006F6243 /* ViewModelActionable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -590,6 +654,7 @@
 				7743807A2187E7E6006F6243 /* Coordinator.swift in Sources */,
 				7798E43121861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */,
 				7798E43D2186546F002AE2E8 /* MovieManagedExtension.swift in Sources */,
+				774380882187F2D1006F6243 /* MediaListController.swift in Sources */,
 				7798E3FD2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift in Sources */,
 				77A70CCB2186D69700A91307 /* MoviesService.swift in Sources */,
 				774380802187ED56006F6243 /* MediaListCoordinator.swift in Sources */,
@@ -597,16 +662,23 @@
 				77C270992187BB2E00E2A96F /* Expirable.swift in Sources */,
 				7798E3C221838188002AE2E8 /* MediaListViewController.swift in Sources */,
 				7798E3E421839357002AE2E8 /* MovieAbstract.swift in Sources */,
+				7743809521880C83006F6243 /* ViewModelActionable.swift in Sources */,
 				7798E3F12183A5F1002AE2E8 /* URLRequestHandler.swift in Sources */,
+				774380852187F299006F6243 /* MovieListController.swift in Sources */,
+				774380902187FD8E006F6243 /* MediaListRowViewModel.swift in Sources */,
 				7798E4022183D848002AE2E8 /* TMDBURLProvider.swift in Sources */,
 				7798E4092183EA35002AE2E8 /* TMDBConfigurationService.swift in Sources */,
 				7798E3EE2183A598002AE2E8 /* NetworkClient.swift in Sources */,
+				7743808B2187F3C4006F6243 /* MediaListViewModel.swift in Sources */,
 				7743807C2187E8E0006F6243 /* CoordinatorPresenter.swift in Sources */,
+				774380932188002D006F6243 /* ImageURLProvider.swift in Sources */,
 				7743807E2187EAEC006F6243 /* AppContext.swift in Sources */,
 				7798E4262184E5A1002AE2E8 /* ModelArchiver.swift in Sources */,
 				7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */,
 				7798E40D2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift in Sources */,
+				7743808E2187FA43006F6243 /* Observable.swift in Sources */,
 				7798E42E2184FB83002AE2E8 /* ModelFileManager.swift in Sources */,
+				7743809921880DAD006F6243 /* TMDBConfigurationServiceController.swift in Sources */,
 				7798E3EC2183A598002AE2E8 /* JSONNetworkClient.swift in Sources */,
 				77C2709121878D5400E2A96F /* PaginatedResult.swift in Sources */,
 			);

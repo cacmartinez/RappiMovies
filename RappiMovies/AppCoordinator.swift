@@ -36,7 +36,11 @@ class AppCoordinator: Coordinator {
         
         let moviesService = MoviesService(networkClient: networkClient, urlProvider: urlProvider, fetcher:moviePersistanceFetcher)
         
-        return AppContext(dateFormatter: dateFormatter, networkClient: networkClient, moviesService: moviesService)
+        let configurationService = TMDBConfigurationService(networkClient: networkClient, urlProvider: urlProvider, dateFormatter: dateFormatter)
+        
+        let configurationController = TMDBConfigurationServiceController(service: configurationService)
+        
+        return AppContext(dateFormatter: dateFormatter, networkClient: networkClient, moviesService: moviesService, configurationController: configurationController)
     }()
     
     init(window: UIWindow) {

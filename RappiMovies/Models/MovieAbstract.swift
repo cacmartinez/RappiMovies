@@ -86,3 +86,13 @@ extension MovieAbstract: Decodable {
         imagePaths = ImagePaths(poster: posterPath, backdrop: backdropPath)
     }
 }
+
+extension MovieAbstract: MediaListModel {
+    var posterPath: String? {
+        return imagePaths.poster
+    }
+    
+    var backdropPath: String? {
+        return imagePaths.backdrop
+    }
+}

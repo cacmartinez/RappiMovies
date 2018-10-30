@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 protocol MoviesServiceListener: AnyObject {
-    func didFinishFetchingMovies(fromCategory category: MovieCategory, withResults results:Result<PaginatedResult<[MovieAbstract]>>)
+    func didFinishFetchingMovies(fromCategory category: MovieCategory, page:Int, results:Result<PaginatedResult<[MovieAbstract]>>)
 }
 
 final class MoviesService:Service {
@@ -14,7 +14,7 @@ final class MoviesService:Service {
         let paginatedMovieResult = persistanceFetcher.fetchMoviePageResult(page, of: category)
         if let paginatedMovieResult = paginatedMovieResult, !paginatedMovieResult.results.isEmpty {
             listeners.forEach { listener in
-                listener.didFinishFetchingMovies(fromCategory: category, withResults: Result.Success(paginatedMovieResult))
+                listener.didFinishFetchingMovies(fromCategory: category, page: page, results: Result.Success(paginatedMovieResult))
             }
         }
         
@@ -24,7 +24,7 @@ final class MoviesService:Service {
                 self.persistanceFetcher.add(paginatedMovieResult, to: category)
             }
             self.listeners.forEach { listener in
-                listener.didFinishFetchingMovies(fromCategory: category, withResults: result)
+                listener.didFinishFetchingMovies(fromCategory: category, page:page, results: result)
             }
         }
     }

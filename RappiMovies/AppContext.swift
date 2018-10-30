@@ -5,4 +5,5 @@ struct AppContext {
     let networkClient: NetworkClient
     
     let moviesService: MoviesService
+    let configurationController: TMDBConfigurationServiceController
 }
