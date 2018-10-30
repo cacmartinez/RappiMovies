@@ -20,7 +20,7 @@ struct ModelArchiver<Model: Codable> {
     func retriveNonExpiredArchived() -> Model? {
         guard let jsonData = modelFileManager.retriveModelDataForFileName(fileName) else { return nil }
         guard let wrappedModel = try? decoder.decode(ArchivableModelWrapper<Model>.self, from: jsonData) else { fatalError("Error decoding from json") }
-        guard wrappedModel.expirationDate >= Date() else { return nil }
+        if wrappedModel.isExpired() { return nil }
         return wrappedModel.model
     }
     

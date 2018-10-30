@@ -4,11 +4,21 @@ struct MovieAbstract {
     struct Vote {
         let count: Int
         let average: Double
+        
+        init(count: Int, average: Double) {
+            self.count = count
+            self.average = average
+        }
     }
     
     struct ImagePaths {
         let poster: String?
         let backdrop: String?
+        
+        init(poster: String?, backdrop: String?) {
+            self.poster = poster
+            self.backdrop = backdrop
+        }
     }
     
     let overview: String
@@ -22,6 +32,20 @@ struct MovieAbstract {
     let hasVideo: Bool
     let vote: Vote
     let imagePaths: ImagePaths
+    
+    init(overview: String, releaseDate: Date, genreIds: [Int], id: Int, originalTitle: String, originalLanguage:String, title:String, popularity: Double, hasVideo: Bool, vote: Vote, imagePaths: ImagePaths) {
+        self.overview = overview
+        self.releaseDate = releaseDate
+        self.genreIds = genreIds
+        self.id = id
+        self.originalTitle = originalTitle
+        self.originalLanguage = originalLanguage
+        self.title = title
+        self.popularity = popularity
+        self.hasVideo = hasVideo
+        self.vote = vote
+        self.imagePaths = imagePaths
+    }
 }
 
 extension MovieAbstract: Decodable {
