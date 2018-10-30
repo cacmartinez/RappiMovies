@@ -5,11 +5,12 @@ class MovieListController: MediaListController {
     private let moviesService: MoviesService
     private let category: MovieCategory
     private let dateFormatter: DateFormatter
-    var mediaTapped: ((MediaListModel)->())?
-    var errorLoading: ((Error)->Void)?
     private var lastPageLoaded = 0
     private var totalPages = 0
     private let configurationController: TMDBConfigurationServiceController
+    var mediaTapped: ((MediaListModel)->())?
+    var errorLoading: ((Error)->Void)?
+    var newValuesAdded: ((_ values: [MediaListRowViewModel], _ addedValues: [MediaListRowViewModel]) -> Void)?
     
     func removeObservations() {
         self.moviesService.removeListener(listener: self)
@@ -50,7 +51,7 @@ class MovieListController: MediaListController {
             newValues.append(viewModel)
         }
         viewModel.rowViewModels.value.append(contentsOf: newValues)
-        viewModel.rowViewModelsAdded.value = newValues
+        newValuesAdded?(viewModel.rowViewModels.value, newValues)
     }
 }
 

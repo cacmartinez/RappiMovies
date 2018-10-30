@@ -16,6 +16,7 @@ final class MoviesService:Service {
             listeners.forEach { listener in
                 listener.didFinishFetchingMovies(fromCategory: category, page: page, results: Result.Success(paginatedMovieResult))
             }
+            return
         }
         
         networkFetcher.fetchMoviePage(page, of: category) { [weak self] result in

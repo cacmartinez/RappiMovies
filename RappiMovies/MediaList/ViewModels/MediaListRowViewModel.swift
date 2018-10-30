@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol MediaListModel {
     var title: String { get }
@@ -7,13 +7,17 @@ protocol MediaListModel {
     var backdropPath: String? { get }
 }
 
-class MediaListRowViewModel: ViewModelActionable {
+class MediaListRowViewModel: ViewModelActionable, RowViewModel {
     let title: String
     let releaseDate: String
     let posterPath: String?
     let backdropPath: String?
     let imageURLProvider: ImageURLProvider
     var viewModelTapped: (() -> Void)?
+    
+    var cellType: ConfigurableCollectionViewCell.Type {
+        return MediaListCell.self
+    }
     
     init(mediaListModel: MediaListModel, imageURLProvider: ImageURLProvider, dateFormatter: DateFormatter) {
         title = mediaListModel.title

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5BEE71A0D3AFA5708832D4E7 /* Pods_RappiMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */; };
+		772FA6E32188C2D40020EAB1 /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E22188C2D40020EAB1 /* MediaListView.swift */; };
+		772FA6E52188C6890020EAB1 /* MediaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E42188C6890020EAB1 /* MediaListCell.swift */; };
+		772FA6E82188C7530020EAB1 /* CellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E72188C7530020EAB1 /* CellExtensions.swift */; };
+		772FA6EA2188C7CF0020EAB1 /* RowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E92188C7CF0020EAB1 /* RowViewModel.swift */; };
+		772FA6ED2188CF4C0020EAB1 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6EC2188CF4C0020EAB1 /* ConfigurableCell.swift */; };
 		774380782187E70A006F6243 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380772187E70A006F6243 /* AppCoordinator.swift */; };
 		7743807A2187E7E6006F6243 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380792187E7E6006F6243 /* Coordinator.swift */; };
 		7743807C2187E8E0006F6243 /* CoordinatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743807B2187E8E0006F6243 /* CoordinatorPresenter.swift */; };
@@ -85,6 +90,11 @@
 
 /* Begin PBXFileReference section */
 		3237923B3956AA4A32D53F45 /* Pods-RappiMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.release.xcconfig"; sourceTree = "<group>"; };
+		772FA6E22188C2D40020EAB1 /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
+		772FA6E42188C6890020EAB1 /* MediaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCell.swift; sourceTree = "<group>"; };
+		772FA6E72188C7530020EAB1 /* CellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExtensions.swift; sourceTree = "<group>"; };
+		772FA6E92188C7CF0020EAB1 /* RowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewModel.swift; sourceTree = "<group>"; };
+		772FA6EC2188CF4C0020EAB1 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		774380772187E70A006F6243 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		774380792187E7E6006F6243 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7743807B2187E8E0006F6243 /* CoordinatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPresenter.swift; sourceTree = "<group>"; };
@@ -159,6 +169,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		772FA6E62188C71B0020EAB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				772FA6E72188C7530020EAB1 /* CellExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		774380722187E68A006F6243 /* MediaList */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +209,8 @@
 		774380752187E6B1006F6243 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				772FA6E22188C2D40020EAB1 /* MediaListView.swift */,
+				772FA6E42188C6890020EAB1 /* MediaListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +378,7 @@
 		7798E3FF2183D7AC002AE2E8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				772FA6E62188C71B0020EAB1 /* Extensions */,
 				7743808C2187FA28006F6243 /* Observer */,
 				774380812187F098006F6243 /* AppColors */,
 				77C2709A2187BBC000E2A96F /* Protocols */,
@@ -486,6 +507,8 @@
 				774380792187E7E6006F6243 /* Coordinator.swift */,
 				7743807B2187E8E0006F6243 /* CoordinatorPresenter.swift */,
 				7743809421880C83006F6243 /* ViewModelActionable.swift */,
+				772FA6E92188C7CF0020EAB1 /* RowViewModel.swift */,
+				772FA6EC2188CF4C0020EAB1 /* ConfigurableCell.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -650,7 +673,9 @@
 				7798E4102183F0E1002AE2E8 /* NetworkFetcher.swift in Sources */,
 				77A70CC92186D4D800A91307 /* MoviesNetworkFetcher.swift in Sources */,
 				77A415632186B96A00E6A80C /* MoviesPersistanceFetcher.swift in Sources */,
+				772FA6EA2188C7CF0020EAB1 /* RowViewModel.swift in Sources */,
 				7798E42A2184E9FD002AE2E8 /* ArchivableModelWrapper.swift in Sources */,
+				772FA6ED2188CF4C0020EAB1 /* ConfigurableCell.swift in Sources */,
 				7743807A2187E7E6006F6243 /* Coordinator.swift in Sources */,
 				7798E43121861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */,
 				7798E43D2186546F002AE2E8 /* MovieManagedExtension.swift in Sources */,
@@ -663,8 +688,11 @@
 				7798E3C221838188002AE2E8 /* MediaListViewController.swift in Sources */,
 				7798E3E421839357002AE2E8 /* MovieAbstract.swift in Sources */,
 				7743809521880C83006F6243 /* ViewModelActionable.swift in Sources */,
+				772FA6E52188C6890020EAB1 /* MediaListCell.swift in Sources */,
+				772FA6E32188C2D40020EAB1 /* MediaListView.swift in Sources */,
 				7798E3F12183A5F1002AE2E8 /* URLRequestHandler.swift in Sources */,
 				774380852187F299006F6243 /* MovieListController.swift in Sources */,
+				772FA6E82188C7530020EAB1 /* CellExtensions.swift in Sources */,
 				774380902187FD8E006F6243 /* MediaListRowViewModel.swift in Sources */,
 				7798E4022183D848002AE2E8 /* TMDBURLProvider.swift in Sources */,
 				7798E4092183EA35002AE2E8 /* TMDBConfigurationService.swift in Sources */,
