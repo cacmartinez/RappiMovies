@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MediaListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = AppColors.backgroundColor
         // Do any additional setup after loading the view, typically from a nib.
     }
 
