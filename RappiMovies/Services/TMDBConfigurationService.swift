@@ -22,7 +22,9 @@ final class TMDBConfigurationService {
             if let configuration = configuration {
                 return Promise.value(configuration)
             } else {
-                return self.networkFetcher.fetchConfiguration()
+                return self.networkFetcher.fetchConfiguration().get { configuration in
+                    self.persistanceFetcher.save(configuration)
+                }
             }
         }
     }

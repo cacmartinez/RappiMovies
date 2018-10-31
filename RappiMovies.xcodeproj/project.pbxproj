@@ -82,6 +82,10 @@
 		77D2B81D218930E500F3ADC2 /* ImageURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380922188002D006F6243 /* ImageURLProvider.swift */; };
 		77D2B81E2189314800F3ADC2 /* MediaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E42188C6890020EAB1 /* MediaListCell.swift */; };
 		77D2B81F2189315800F3ADC2 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380822187F0C3006F6243 /* AppColors.swift */; };
+		77D2B8212189357800F3ADC2 /* MediaImagesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B8202189357800F3ADC2 /* MediaImagesInfo.swift */; };
+		77D2B82321893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B82221893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift */; };
+		77D2B82521893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B82421893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift */; };
+		77D2B8272189417F00F3ADC2 /* MovieImagesInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B8262189417F00F3ADC2 /* MovieImagesInfoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +156,10 @@
 		77A70CCA2186D69700A91307 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		77C2709021878D5400E2A96F /* PaginatedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResult.swift; sourceTree = "<group>"; };
 		77C270982187BB2E00E2A96F /* Expirable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expirable.swift; sourceTree = "<group>"; };
+		77D2B8202189357800F3ADC2 /* MediaImagesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaImagesInfo.swift; sourceTree = "<group>"; };
+		77D2B82221893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImagesInfoNetworkFetcher.swift; sourceTree = "<group>"; };
+		77D2B82421893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImagesInfoPersistanceFetcher.swift; sourceTree = "<group>"; };
+		77D2B8262189417F00F3ADC2 /* MovieImagesInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImagesInfoService.swift; sourceTree = "<group>"; };
 		9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC4C80AE08DE893D65ADC35 /* Pods_RappiMoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +351,7 @@
 			children = (
 				7798E3E321839357002AE2E8 /* MovieAbstract.swift */,
 				7798E3E62183A2DB002AE2E8 /* TMDBConfiguration.swift */,
+				77D2B8202189357800F3ADC2 /* MediaImagesInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +390,7 @@
 				7798E4192184D9C3002AE2E8 /* Protocol */,
 				7798E4082183EA35002AE2E8 /* TMDBConfigurationService.swift */,
 				77A70CCA2186D69700A91307 /* MoviesService.swift */,
+				77D2B8262189417F00F3ADC2 /* MovieImagesInfoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -430,6 +440,7 @@
 				7798E40E2183F0C3002AE2E8 /* Protocol */,
 				7798E40C2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift */,
 				77A70CC82186D4D800A91307 /* MoviesNetworkFetcher.swift */,
+				77D2B82221893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift */,
 			);
 			path = NetworkFetchers;
 			sourceTree = "<group>";
@@ -472,6 +483,7 @@
 			children = (
 				7798E43021861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift */,
 				77A415622186B96A00E6A80C /* MoviesPersistanceFetcher.swift */,
+				77D2B82421893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift */,
 			);
 			path = PersistanceFetchers;
 			sourceTree = "<group>";
@@ -757,6 +769,7 @@
 				77A415632186B96A00E6A80C /* MoviesPersistanceFetcher.swift in Sources */,
 				772FA6EA2188C7CF0020EAB1 /* RowViewModel.swift in Sources */,
 				7798E42A2184E9FD002AE2E8 /* ArchivableModelWrapper.swift in Sources */,
+				77D2B8212189357800F3ADC2 /* MediaImagesInfo.swift in Sources */,
 				772FA6ED2188CF4C0020EAB1 /* ConfigurableCell.swift in Sources */,
 				7743807A2187E7E6006F6243 /* Coordinator.swift in Sources */,
 				7798E43121861C04002AE2E8 /* TMDBPersistanceConfigurationFetcher.swift in Sources */,
@@ -784,13 +797,16 @@
 				774380932188002D006F6243 /* ImageURLProvider.swift in Sources */,
 				7743807E2187EAEC006F6243 /* AppContext.swift in Sources */,
 				7798E4262184E5A1002AE2E8 /* ModelArchiver.swift in Sources */,
+				77D2B82521893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift in Sources */,
 				7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */,
 				7798E40D2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift in Sources */,
 				7743808E2187FA43006F6243 /* Observable.swift in Sources */,
+				77D2B8272189417F00F3ADC2 /* MovieImagesInfoService.swift in Sources */,
 				7798E42E2184FB83002AE2E8 /* ModelFileManager.swift in Sources */,
 				7743809921880DAD006F6243 /* MoviesServiceController.swift in Sources */,
 				7798E3EC2183A598002AE2E8 /* JSONNetworkClient.swift in Sources */,
 				77C2709121878D5400E2A96F /* PaginatedResult.swift in Sources */,
+				77D2B82321893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

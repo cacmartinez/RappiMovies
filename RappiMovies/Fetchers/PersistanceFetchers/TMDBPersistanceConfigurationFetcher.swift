@@ -3,13 +3,14 @@ import PromiseKit
 
 struct TMDBPersistanceConfigurationFetcher {
     let modelArchiver: ModelArchiver<TMDBConfiguration>
+    let fileName = String(describing: TMDBConfiguration.self)
     
     func fetchConfiguration() -> Promise<TMDBConfiguration?> {
-        return modelArchiver.retriveNonExpiredArchived()
+        return modelArchiver.retriveNonExpiredArchivedOfFileNamed(fileName)
     }
     
     func save(_ configuration: TMDBConfiguration) {
-        modelArchiver.save(configuration)
+        modelArchiver.save(configuration, withFileName:fileName)
     }
     
     init(dateFormatter: DateFormatter) {

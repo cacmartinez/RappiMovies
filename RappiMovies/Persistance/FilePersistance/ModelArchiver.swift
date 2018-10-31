@@ -8,9 +8,8 @@ struct ModelArchiver<Model: Codable> {
     private let decoder = JSONDecoder()
     let lifeSpan: Days
     let modelFileManager = ModelFileManager()
-    let fileName = String(describing: Model.self)
     
-    func save(_ model: Model) {
+    func save(_ model: Model, withFileName fileName: String) {
         guard let expirationDate = Calendar.current.date(byAdding: .day, value: lifeSpan, to: Date()) else { fatalError("Was not able to generate expiration date from life span") }
         let archiveWrapper = ArchivableModelWrapper(expirationDate: expirationDate, model: model)
         guard let jsonData = try? encoder.encode(archiveWrapper) else { fatalError("Was not able to encode model when saving") }
@@ -18,7 +17,7 @@ struct ModelArchiver<Model: Codable> {
     }
     
     /// Returns archived object if it hasn't expired.
-    func retriveNonExpiredArchived() -> Promise<Model?> {
+    func retriveNonExpiredArchivedOfFileNamed(_ fileName: String) -> Promise<Model?> {
         return Promise { seal in
             guard let jsonData = modelFileManager.retriveModelDataForFileName(fileName) else {
                 return seal.fulfill(nil)
@@ -30,7 +29,7 @@ struct ModelArchiver<Model: Codable> {
         
     }
     
-    func deleteArchived() {
+    func deleteArchivedFileNamed(_ fileName: String) {
         modelFileManager.deleteModelWithFileName(fileName)
     }
     

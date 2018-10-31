@@ -1,7 +1,7 @@
 import Foundation
 import PromiseKit
 
-final class MoviesService {
+struct MoviesService {
     private let networkFetcher: MoviesNetworkFetcher
     private let persistanceFetcher: MoviesPersistanceFetcher
     
@@ -17,7 +17,9 @@ final class MoviesService {
             if let paginatedMovieResult = paginatedMovieResult, !paginatedMovieResult.results.isEmpty {
                 return Promise.value(paginatedMovieResult)
             }
-            return self.networkFetcher.fetchMoviePage(page, of: category)
+            return self.networkFetcher.fetchMoviePage(page, of: category).get { paginatedMovieResult in
+                self.persistanceFetcher.add(paginatedMovieResult, to: category)
+            }
         }
     }
     

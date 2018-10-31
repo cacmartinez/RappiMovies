@@ -39,10 +39,10 @@ class MovieListController: MediaListController {
         self.moviesServiceController.addListener(listener: self)
     }
     
-    private func updateRowModels(with movieModels: [MovieAbstract], imageURLProvider: ImageURLProvider) {
+    private func updateRowModels(with movieModelsImageInfoMap: [(MovieAbstract, MediaImagesInfo)], imageURLProvider: ImageURLProvider) {
         var newValues: [MediaListRowViewModel] = []
-        for movieModel in movieModels {
-            let viewModel = MediaListRowViewModel(mediaListModel: movieModel, imageURLProvider: imageURLProvider, dateFormatter: dateFormatter)
+        for (movieModel, imagesInfo) in movieModelsImageInfoMap {
+            let viewModel = MediaListRowViewModel(mediaListModel: movieModel, imagesInfo: imagesInfo, imageURLProvider: imageURLProvider, dateFormatter: dateFormatter)
             viewModel.viewModelTapped = { [weak self] in
                 self?.mediaTapped?(movieModel)
             }
