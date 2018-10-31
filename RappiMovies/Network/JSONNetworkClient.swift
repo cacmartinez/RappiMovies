@@ -1,4 +1,5 @@
 import Foundation
+import PromiseKit
 
 struct JSONNetworkClient: NetworkClient {
     private let timeoutInterval = 5.0
@@ -10,21 +11,23 @@ struct JSONNetworkClient: NetworkClient {
         self.dateFormatter = dateFormatter
     }
     
-    func get<T: Decodable>(url: URL, callback: @escaping ResultBlock<T>) {
+    func get<T: Decodable>(url: URL) -> Promise<T> {
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeoutInterval)
-        requestHandler.handle(request) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let error = error {
-                    callback(Result.Error(error))
-                } else {
-                    guard let data = data else {
-                        fatalError("Received empty data from successful response")
-                    }
-                    do {
-                        let result = try self.decodeJSON(T.self, from:data)
-                        callback(Result.Success(result))
-                    } catch {
-                        fatalError("Error decoding JSON check Decodable objects")
+        return Promise { seal in
+            requestHandler.handle(request) { (data, response, error) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        seal.resolve(nil, error)
+                    } else {
+                        guard let data = data else {
+                            fatalError("Received empty data from successful response")
+                        }
+                        do {
+                            let result = try self.decodeJSON(T.self, from:data)
+                            seal.resolve(result, error)
+                        } catch {
+                            fatalError("Error decoding JSON check Decodable objects")
+                        }
                     }
                 }
             }

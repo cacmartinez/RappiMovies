@@ -1,4 +1,5 @@
 import Foundation
+import PromiseKit
 
 typealias Days = Int
 
@@ -17,11 +18,16 @@ struct ModelArchiver<Model: Codable> {
     }
     
     /// Returns archived object if it hasn't expired.
-    func retriveNonExpiredArchived() -> Model? {
-        guard let jsonData = modelFileManager.retriveModelDataForFileName(fileName) else { return nil }
-        guard let wrappedModel = try? decoder.decode(ArchivableModelWrapper<Model>.self, from: jsonData) else { fatalError("Error decoding from json") }
-        if wrappedModel.isExpired() { return nil }
-        return wrappedModel.model
+    func retriveNonExpiredArchived() -> Promise<Model?> {
+        return Promise { seal in
+            guard let jsonData = modelFileManager.retriveModelDataForFileName(fileName) else {
+                return seal.fulfill(nil)
+            }
+            guard let wrappedModel = try? decoder.decode(ArchivableModelWrapper<Model>.self, from: jsonData) else { fatalError("Error decoding from json") }
+            if wrappedModel.isExpired() { return seal.fulfill(nil) }
+            return seal.fulfill(wrappedModel.model)
+        }
+        
     }
     
     func deleteArchived() {

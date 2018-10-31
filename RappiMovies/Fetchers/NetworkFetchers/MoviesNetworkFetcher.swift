@@ -1,10 +1,11 @@
 import Foundation
+import PromiseKit
 
 struct MoviesNetworkFetcher: NetworkFetcher {
     private let networkClient: NetworkClient
     private let urlProvider: TMDBURLProviderProtocol
     
-    func fetchMoviePage(_ page: Int, of category: MovieCategory, result: @escaping ResultBlock<PaginatedResult<[MovieAbstract]>>) {
+    func fetchMoviePage(_ page: Int, of category: MovieCategory) -> Promise<PaginatedResult<[MovieAbstract]>> {
         let url: URL
         switch category {
         case .Popular:
@@ -14,7 +15,7 @@ struct MoviesNetworkFetcher: NetworkFetcher {
         case .Upcoming:
             url = urlProvider.url(for: .upcomingMovies(page: URLPage(integerLiteral: page)))
         }
-        networkClient.get(url: url, callback: result)
+        return networkClient.get(url: url)
     }
     
     init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol) {

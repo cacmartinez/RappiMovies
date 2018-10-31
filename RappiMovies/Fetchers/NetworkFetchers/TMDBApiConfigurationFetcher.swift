@@ -1,12 +1,13 @@
 import Foundation
+import PromiseKit
 
 struct TMDBApiConfigurationFetcher: NetworkFetcher {
     let networkClient: NetworkClient
     let urlProvider: TMDBURLProviderProtocol
     
-    func fetchConfiguration(onCompletion: @escaping ResultBlock<TMDBConfiguration>) {
+    func fetchConfiguration() -> Promise<TMDBConfiguration> {
         let configurationURL = urlProvider.url(for: .configuration)
-        networkClient.get(url: configurationURL, callback: onCompletion)
+        return networkClient.get(url: configurationURL)
     }
     
     init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol) {

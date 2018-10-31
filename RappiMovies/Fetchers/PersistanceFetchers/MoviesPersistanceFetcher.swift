@@ -1,5 +1,6 @@
 import Foundation
 import CoreData
+import PromiseKit
 
 enum MovieCategory: String {
     case Upcoming
@@ -48,17 +49,19 @@ struct MoviesPersistanceFetcher {
         return managedCategory
     }
     
-    func fetchMoviePageResult(_ page: Int, of category: MovieCategory) -> PaginatedResult<[MovieAbstract]>? {
-        do {
-            guard let managedCategory = try fetchNonExpiredManagedCategory(of: category) else {
-                return nil
+    func fetchMoviePageResult(_ page: Int, of category: MovieCategory) -> Promise<PaginatedResult<[MovieAbstract]>?> {
+        return Promise { seal in
+            do {
+                guard let managedCategory = try fetchNonExpiredManagedCategory(of: category) else {
+                    return seal.fulfill(nil)
+                }
+                let managedMovies = try fetchManagedMovies(with: managedCategory, page: page)
+                let movieModels = managedMovies.map { $0.movieModel }
+                let paginationInfo = PaginationInfo(totalPages: Int(managedCategory.totalPages))
+                return seal.fulfill(PaginatedResult(results: movieModels, paginationInfo: paginationInfo))
+            } catch {
+                fatalError("Fetch error")
             }
-            let managedMovies = try fetchManagedMovies(with: managedCategory, page: page)
-            let movieModels = managedMovies.map { $0.movieModel }
-            let paginationInfo = PaginationInfo(totalPages: Int(managedCategory.totalPages))
-            return PaginatedResult(results: movieModels, paginationInfo: paginationInfo)
-        } catch {
-            fatalError("Fetch error")
         }
     }
     

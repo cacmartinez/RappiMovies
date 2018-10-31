@@ -2,18 +2,17 @@ import Foundation
 
 class MovieListController: MediaListController {
     let viewModel: MediaListViewModel = MediaListViewModel()
-    private let moviesService: MoviesService
+    private let moviesServiceController: MoviesServiceController
     private let category: MovieCategory
     private let dateFormatter: DateFormatter
     private var lastPageLoaded = 0
     private var totalPages = 0
-    private let configurationController: TMDBConfigurationServiceController
     var mediaTapped: ((MediaListModel)->())?
     var errorLoading: ((Error)->Void)?
     var newValuesAdded: ((_ values: [MediaListRowViewModel], _ addedValues: [MediaListRowViewModel]) -> Void)?
     
     func removeObservations() {
-        self.moviesService.removeListener(listener: self)
+        self.moviesServiceController.removeListener(listener: self)
     }
     
     func start() {
@@ -29,16 +28,15 @@ class MovieListController: MediaListController {
     private func loadItemsOfPage(page: Int) {
         if !viewModel.isLoading.value {
             viewModel.isLoading.value = true
-            moviesService.fetchMoviePage(page, of: category)
+            moviesServiceController.fetchMoviePage(page, of: category)
         }
     }
     
-    init(moviesService: MoviesService, category: MovieCategory, dateFormatter: DateFormatter, configurationController: TMDBConfigurationServiceController) {
-        self.moviesService = moviesService
+    init(moviesServiceController: MoviesServiceController, category: MovieCategory, dateFormatter: DateFormatter) {
+        self.moviesServiceController = moviesServiceController
         self.category = category
         self.dateFormatter = dateFormatter
-        self.configurationController = configurationController
-        self.moviesService.addListener(listener: self)
+        self.moviesServiceController.addListener(listener: self)
     }
     
     private func updateRowModels(with movieModels: [MovieAbstract], imageURLProvider: ImageURLProvider) {
@@ -55,24 +53,18 @@ class MovieListController: MediaListController {
     }
 }
 
-extension MovieListController: MoviesServiceListener {
-    func didFinishFetchingMovies(fromCategory category: MovieCategory, page: Int, results: Result<PaginatedResult<[MovieAbstract]>>) {
-        configurationController.configuration { [weak self] configurationResult in
-            guard let self = self else { return }
-            
-            self.viewModel.isLoading.value = false
-            switch (configurationResult, results) {
-            case (.Success(let configuration),.Success(let paginatedResult)):
-                self.totalPages = paginatedResult.paginationInfo.totalPages
-                self.lastPageLoaded = page
-                self.viewModel.canLoadMore = self.totalPages > page
-                let imageURLProvider = ImageURLProvider(configuration: configuration)
-                self.updateRowModels(with: paginatedResult.results, imageURLProvider: imageURLProvider)
-            case (.Error(let error), _):
-                self.errorLoading?(error)
-            case (_, .Error(let error)):
-                self.errorLoading?(error)
-            }
+extension MovieListController: MoviesServiceControllerListener {
+    func didFinishFetchingMovies(fromCategory category: MovieCategory, page: Int, results: Result<MovieResultsInfo>) {
+        viewModel.isLoading.value = false
+        switch results {
+        case .Success(let configuration, let paginatedMoviesResult):
+            totalPages = paginatedMoviesResult.paginationInfo.totalPages
+            lastPageLoaded = page
+            viewModel.canLoadMore = self.totalPages > page
+            let imageURLProvider = ImageURLProvider(configuration: configuration)
+            updateRowModels(with: paginatedMoviesResult.results, imageURLProvider: imageURLProvider)
+        case .Error(let error):
+            errorLoading?(error)
         }
     }
 }

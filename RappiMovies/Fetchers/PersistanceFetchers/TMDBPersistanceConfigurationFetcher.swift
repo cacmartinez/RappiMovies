@@ -1,9 +1,10 @@
 import Foundation
+import PromiseKit
 
 struct TMDBPersistanceConfigurationFetcher {
     let modelArchiver: ModelArchiver<TMDBConfiguration>
     
-    func fetchConfiguration() -> TMDBConfiguration? {
+    func fetchConfiguration() -> Promise<TMDBConfiguration?> {
         return modelArchiver.retriveNonExpiredArchived()
     }
     

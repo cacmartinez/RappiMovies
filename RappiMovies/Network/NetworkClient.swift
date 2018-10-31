@@ -1,5 +1,6 @@
 import Foundation
+import PromiseKit
 
 protocol NetworkClient {
-    func get<T: Decodable>(url: URL, callback: @escaping ResultBlock<T>)
+    func get<T: Decodable>(url: URL) -> Promise<T>
 }

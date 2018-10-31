@@ -6,7 +6,7 @@ class MediaListCoordinator: Coordinator {
     let category: MovieCategory = .Popular
     
     func start() {
-        let controller = MovieListController(moviesService: appContext.moviesService, category: category, dateFormatter: appContext.dateFormatter, configurationController: appContext.configurationController)
+        let controller = MovieListController(moviesServiceController: appContext.moviesServiceController, category: category, dateFormatter: appContext.dateFormatter)
         let viewController = MediaListViewController(controller: controller)
         viewController.title = category.rawValue
         presenter.present(controller: viewController, animated: false)

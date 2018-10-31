@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Service {
+protocol ServiceController {
     associatedtype Listener
     
     func addListener(listener: Listener)

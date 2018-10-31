@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: aa33f7e44c45dbd589cd1267300106663598a258
+PODS:
+  - PromiseKit/CorePromise (6.5.2)
+
+DEPENDENCIES:
+  - PromiseKit/CorePromise
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PromiseKit
+
+SPEC CHECKSUMS:
+  PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
+
+PODFILE CHECKSUM: 6fa086523c70030e89cd64f9807e0e0051178052
 
 COCOAPODS: 1.5.3
