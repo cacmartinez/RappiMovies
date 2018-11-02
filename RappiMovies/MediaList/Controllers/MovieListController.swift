@@ -27,7 +27,6 @@ class MovieListController: MediaListController {
     
     private func loadItemsOfPage(page: Int) {
         if !viewModel.isLoading.value {
-            viewModel.isLoading.value = true
             moviesServiceController.fetchMoviePage(page, of: category)
         }
     }
@@ -54,8 +53,15 @@ class MovieListController: MediaListController {
 }
 
 extension MovieListController: MoviesServiceControllerListener {
-    func didFinishFetchingMovies(fromCategory category: MovieCategory, page: Int, results: Result<MovieResultsInfo>) {
+    func moviesServiceControllerDidStartLoadingMovies() {
+        viewModel.isLoading.value = true
+    }
+    
+    func moviesServiceControllerDidFinishLoadingMovies() {
         viewModel.isLoading.value = false
+    }
+    
+    func didFinishFetchingMovies(fromCategory category: MovieCategory, page: Int, results: Result<MovieResultsInfo>) {
         switch results {
         case .Success(let configuration, let paginatedMoviesResult):
             totalPages = paginatedMoviesResult.paginationInfo.totalPages

@@ -7,6 +7,8 @@ protocol MoviesServiceControllerListener: AnyObject {
     func didFinishFetchingMovies(fromCategory category: MovieCategory,
                                  page:Int,
                                  results:Result<MovieResultsInfo>)
+    func moviesServiceControllerDidStartLoadingMovies()
+    func moviesServiceControllerDidFinishLoadingMovies()
 }
 
 final class MoviesServiceController: ServiceController {
@@ -16,6 +18,7 @@ final class MoviesServiceController: ServiceController {
     private var listeners: [MoviesServiceControllerListener] = []
     
     func fetchMoviePage(_ page: Int, of category: MovieCategory, ignoringPersistance: Bool = false) {
+        self.listeners.forEach { $0.moviesServiceControllerDidStartLoadingMovies() }
         configurationService.fetchConfiguration(ignoringPersistance: ignoringPersistance).then { configuration in
             return self.moviesService.fetchMoviePage(page, of: category).then { paginatedMoviesResult -> Promise<MovieResultsInfo> in
                 let imagesInfoPromises = paginatedMoviesResult.results.map { movie in
@@ -28,6 +31,8 @@ final class MoviesServiceController: ServiceController {
                     return (configuration, newPaginatedResult)
                 }
             }
+        }.ensure {
+            self.listeners.forEach { $0.moviesServiceControllerDidFinishLoadingMovies() }
         }.done { movieResultsInfo in
             self.listeners.forEach { listener in
                 listener.didFinishFetchingMovies(fromCategory: category, page: page, results: Result.Success(movieResultsInfo))

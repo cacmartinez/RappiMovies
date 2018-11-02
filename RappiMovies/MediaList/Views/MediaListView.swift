@@ -4,7 +4,7 @@ class MediaListView: UIView {
     let collectionView: UICollectionView
     let collectionViewLayout = UICollectionViewFlowLayout()
     
-    init() {
+    override init(frame: CGRect) {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: collectionViewLayout)
         super.init(frame: CGRect.zero)
         setupInitialState()
@@ -18,16 +18,23 @@ class MediaListView: UIView {
         setupConstraints()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let widthInsets = collectionView.contentInset.left + collectionView.contentInset.right
+        collectionViewLayout.estimatedItemSize = CGSize(width: frame.width - widthInsets,
+                                                        height: 100)
+    }
+    
     func setupInitialState() {
         backgroundColor = AppColors.backgroundColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        collectionViewLayout.estimatedItemSize = CGSize(width: 100, height: 100)
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         
         addSubview(collectionView)
         
         collectionView.register(MediaListCell.self, forCellWithReuseIdentifier: MediaListCell.cellIdentifier())
+        collectionView.register(LoadingCell.self, forCellWithReuseIdentifier: LoadingCell.cellIdentifier())
     }
     
     func setupConstraints() {

@@ -86,6 +86,7 @@
 		77D2B82321893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B82221893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift */; };
 		77D2B82521893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B82421893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift */; };
 		77D2B8272189417F00F3ADC2 /* MovieImagesInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B8262189417F00F3ADC2 /* MovieImagesInfoService.swift */; };
+		77D2B859218BCE4200F3ADC2 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2B858218BCE4200F3ADC2 /* LoadingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		77D2B82221893A3000F3ADC2 /* MovieImagesInfoNetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImagesInfoNetworkFetcher.swift; sourceTree = "<group>"; };
 		77D2B82421893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImagesInfoPersistanceFetcher.swift; sourceTree = "<group>"; };
 		77D2B8262189417F00F3ADC2 /* MovieImagesInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieImagesInfoService.swift; sourceTree = "<group>"; };
+		77D2B858218BCE4200F3ADC2 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		9F35711B3A6A5470A00F420E /* Pods_RappiMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31D90735369B185B3B1CDAF /* Pods-RappiMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC4C80AE08DE893D65ADC35 /* Pods_RappiMoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiMoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +231,7 @@
 			children = (
 				772FA6E22188C2D40020EAB1 /* MediaListView.swift */,
 				772FA6E42188C6890020EAB1 /* MediaListCell.swift */,
+				77D2B858218BCE4200F3ADC2 /* LoadingCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -718,12 +721,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RappiMovies/Pods-RappiMovies-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -798,6 +805,7 @@
 				7743807E2187EAEC006F6243 /* AppContext.swift in Sources */,
 				7798E4262184E5A1002AE2E8 /* ModelArchiver.swift in Sources */,
 				77D2B82521893C6300F3ADC2 /* MovieImagesInfoPersistanceFetcher.swift in Sources */,
+				77D2B859218BCE4200F3ADC2 /* LoadingCell.swift in Sources */,
 				7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */,
 				7798E40D2183F06C002AE2E8 /* TMDBApiConfigurationFetcher.swift in Sources */,
 				7743808E2187FA43006F6243 /* Observable.swift in Sources */,
