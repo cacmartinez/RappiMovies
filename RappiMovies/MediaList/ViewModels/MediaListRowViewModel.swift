@@ -1,6 +1,8 @@
 import UIKit
 
-protocol MediaListModel {
+protocol ListModel {}
+
+protocol MediaListModel: ListModel {
     var title: String { get }
     var releaseDate: Date { get }
     var posterPath: String? { get }

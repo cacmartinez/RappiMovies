@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import PromiseKit
 
-enum MovieCategory: String {
+enum MovieCategory: String, ListModel {
     case Upcoming
     case TopRated
     case Popular

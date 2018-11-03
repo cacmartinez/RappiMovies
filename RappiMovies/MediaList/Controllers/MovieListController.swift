@@ -1,15 +1,16 @@
 import Foundation
 
-class MovieListController: MediaListController {
-    let viewModel: MediaListViewModel = MediaListViewModel()
+class MovieListController: PaginatedMediaListController {
+    let viewModel: ListViewModel = MediaListViewModel()
     private let moviesServiceController: MoviesServiceController
     private let category: MovieCategory
     private let dateFormatter: DateFormatter
     private var lastPageLoaded = 0
     private var totalPages = 0
-    var mediaTapped: ((MediaListModel)->())?
+    var mediaTapped: ((ListModel)->())?
     var errorLoading: ((Error)->Void)?
-    var newValuesAdded: ((_ values: [MediaListRowViewModel], _ addedValues: [MediaListRowViewModel]) -> Void)?
+    var newValuesAdded: ((_ values: [RowViewModel], _ addedValues: [RowViewModel]) -> Void)?
+    var canLoadMore: Bool = false
     
     func removeObservations() {
         self.moviesServiceController.removeListener(listener: self)
@@ -66,7 +67,7 @@ extension MovieListController: MoviesServiceControllerListener {
         case .Success(let configuration, let paginatedMoviesResult):
             totalPages = paginatedMoviesResult.paginationInfo.totalPages
             lastPageLoaded = page
-            viewModel.canLoadMore = self.totalPages > page
+            canLoadMore = self.totalPages > page
             let imageURLProvider = ImageURLProvider(configuration: configuration)
             updateRowModels(with: paginatedMoviesResult.results, imageURLProvider: imageURLProvider)
         case .Error(let error):

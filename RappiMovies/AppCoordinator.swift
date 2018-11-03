@@ -16,9 +16,14 @@ struct DevelopmentConfiguration: EnvironmentConfiguration {
 class AppCoordinator: Coordinator {
     private let rootViewController: UINavigationController
     private let window: UIWindow
+    private var childCoordinator: Coordinator?
     
-    private lazy var mediaListCoordinator: MediaListCoordinator = {
-        return MediaListCoordinator(presenter: rootViewController, context: appContext)
+    private lazy var allCategoriesListCoordinator: MediaListCoordinator = {
+        let controller = MovieListController(moviesServiceController: appContext.moviesServiceController, category: .Popular, dateFormatter: appContext.dateFormatter)
+        return MediaListCoordinator(presenter: rootViewController,
+                                    context: appContext,
+                                    controller: controller,
+                                    listTitle: "Popular")
     }()
     
     private lazy var appContext: AppContext = {
@@ -52,7 +57,7 @@ class AppCoordinator: Coordinator {
     
     func start() {
         window.rootViewController = rootViewController
-        mediaListCoordinator.start()
+        allCategoriesListCoordinator.start()
         window.makeKeyAndVisible()
     }
     

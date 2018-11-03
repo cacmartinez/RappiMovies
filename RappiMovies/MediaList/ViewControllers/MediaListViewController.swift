@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MediaListViewControllerDelegate: AnyObject {
-    func didSelectMedia(_ media: MediaListModel)
+    func didSelectMedia(_ media: ListModel)
 }
 
 class MediaListViewController: UIViewController {
@@ -51,6 +51,11 @@ class MediaListViewController: UIViewController {
         
         controller.newValuesAdded = { [weak self] values, addedValues in
             guard let self = self else { return }
+            
+            addedValues.forEach { rowViewModel in
+                self.contentView.collectionView.register(rowViewModel.cellType, forCellWithReuseIdentifier:rowViewModel.cellType.cellIdentifier())
+            }
+            
             let oldRowValueCount = values.count - addedValues.count
             let oldLoadingCellIndexPath = IndexPath(row: oldRowValueCount, section: 0)
             let indexPaths = self.indexPathsFromIndices(of: addedValues, withRowOffset: oldRowValueCount)
@@ -88,7 +93,7 @@ class MediaListViewController: UIViewController {
         contentView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
-    private func indexPathsFromIndices(of elements: [MediaListRowViewModel], withRowOffset offset: Int) -> [IndexPath] {
+    private func indexPathsFromIndices(of elements: [RowViewModel], withRowOffset offset: Int) -> [IndexPath] {
         return elements.indices.map { index in
             return IndexPath(row: index + offset, section: 0)
         }
@@ -99,7 +104,7 @@ class MediaListViewController: UIViewController {
     }
 }
 
-extension MediaListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MediaListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let countOfLoadingCell = controller.viewModel.isLoading.value ? 1 : 0
         return controller.viewModel.rowViewModels.value.count + countOfLoadingCell
@@ -124,15 +129,19 @@ extension MediaListViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.row < controller.viewModel.rowViewModels.value.count else { return }
         let rowViewModel = controller.viewModel.rowViewModels.value[indexPath.row]
-        rowViewModel.viewModelTapped?()
+        if let tappableRowViewModel = rowViewModel as? ViewModelActionable {
+            tappableRowViewModel.viewModelTapped?()
+        }
         collectionView.deselectItem(at: indexPath, animated: false)
     }
 }
 
-extension MediaListViewController: UIScrollViewDelegate {
+extension MediaListViewController: UIScrollViewDelegate, UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (isScrollViewAtBottom(scrollView) && controller.viewModel.canLoadMore) {
-            controller.loadMore()
+        if let paginatableController = controller as? PaginatedMediaListController {
+            if (isScrollViewAtBottom(scrollView) && paginatableController.canLoadMore) {
+                paginatableController.loadMore()
+            }
         }
     }
     

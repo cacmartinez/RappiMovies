@@ -4,6 +4,7 @@ class MediaListView: UIView {
     let collectionView: UICollectionView
     let collectionViewLayout = UICollectionViewFlowLayout()
     
+    @available(*, unavailable)
     override init(frame: CGRect) {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: collectionViewLayout)
         super.init(frame: CGRect.zero)
@@ -11,6 +12,7 @@ class MediaListView: UIView {
         setupConstraints()
     }
     
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: collectionViewLayout)
         super.init(coder: aDecoder)
@@ -25,7 +27,7 @@ class MediaListView: UIView {
                                                         height: 100)
     }
     
-    func setupInitialState() {
+    private func setupInitialState() {
         backgroundColor = AppColors.backgroundColor
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
@@ -33,11 +35,10 @@ class MediaListView: UIView {
         
         addSubview(collectionView)
         
-        collectionView.register(MediaListCell.self, forCellWithReuseIdentifier: MediaListCell.cellIdentifier())
         collectionView.register(LoadingCell.self, forCellWithReuseIdentifier: LoadingCell.cellIdentifier())
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
