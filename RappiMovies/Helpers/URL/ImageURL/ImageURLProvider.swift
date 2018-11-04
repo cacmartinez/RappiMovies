@@ -24,7 +24,7 @@ struct ImageURLProvider {
     
     /// Chooses the closest width that is bigger than the given width
     private func sizeForWidth(width: CGFloat, sizes: [String]) -> String {
-        return sizes.first(where: { CGFloat(Int($0.dropFirst())!) > width }) ?? sizes.last!
+        return sizes.first(where: { $0 == "original" || CGFloat(Int($0.dropFirst())!) > width }) ?? sizes.last!
     }
     
     init(configuration: TMDBConfiguration) {

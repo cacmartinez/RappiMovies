@@ -55,11 +55,15 @@ class MovieListController: PaginatedMediaListController {
 
 extension MovieListController: MoviesServiceControllerListener {
     func moviesServiceControllerDidStartLoadingMovies() {
-        viewModel.isLoading.value = true
+        if !viewModel.isLoading.value {
+            viewModel.isLoading.value = true
+        }
     }
     
     func moviesServiceControllerDidFinishLoadingMovies() {
-        viewModel.isLoading.value = false
+        if viewModel.isLoading.value {
+            viewModel.isLoading.value = false
+        }
     }
     
     func didFinishFetchingMovies(fromCategory category: MovieCategory, page: Int, results: Result<MovieResultsInfo>) {

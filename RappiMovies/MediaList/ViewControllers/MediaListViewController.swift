@@ -7,7 +7,10 @@ protocol MediaListViewControllerDelegate: AnyObject {
 class MediaListViewController: UIViewController {
     private var controller: MediaListController!
     let contentView: MediaListView
-    weak var delegate: MediaListViewControllerDelegate?
+    private weak var delegate: MediaListViewControllerDelegate?
+    private var delegateHandler: ListControllerDelegateHandler?
+    private var dataSourceHandler: ListControllerDataSourceHandler?
+    private var controllerStarted = false
     
     var loadingCellIndexPath: IndexPath {
         return IndexPath(row: controller.viewModel.rowViewModels.value.count, section: 0)
@@ -33,11 +36,32 @@ class MediaListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.collectionView.delegate = self
-        contentView.collectionView.dataSource = self
         
+        if let paginatableController = controller as? PaginatedMediaListController {
+            delegateHandler = ListControllerDelegateHandler(paginationHandler: {
+                if paginatableController.canLoadMore {
+                    paginatableController.loadMore()
+                }
+            })
+            
+            contentView.collectionView.delegate = delegateHandler
+        }
+        dataSourceHandler = ListControllerDataSourceHandler(listViewModel: controller.viewModel)
+        contentView.collectionView.dataSource = dataSourceHandler
+        
+        // If there are values in the beggining register their cells
+        controller.viewModel.rowViewModels.value.forEach { rowViewModel in
+            self.contentView.collectionView.register(rowViewModel.cellType, forCellWithReuseIdentifier:rowViewModel.cellType.cellIdentifier())
+        }
         setupBindings()
-        controller.start()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !controllerStarted {
+            controllerStarted = true
+            controller.start()
+        }
     }
     
     private func setupBindings() {
@@ -101,51 +125,5 @@ class MediaListViewController: UIViewController {
     
     deinit {
         controller.removeObservations()
-    }
-}
-
-extension MediaListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let countOfLoadingCell = controller.viewModel.isLoading.value ? 1 : 0
-        return controller.viewModel.rowViewModels.value.count + countOfLoadingCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell
-        switch indexPath {
-        case loadingCellIndexPath:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoadingCell.cellIdentifier(), for: indexPath)
-        default:
-            let viewModel = controller.viewModel.rowViewModels.value[indexPath.item]
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.cellType.cellIdentifier(), for: indexPath)
-            if let cell = cell as? RowViewModel.ConfigurableCollectionViewCell {
-                cell.setup(with: viewModel)
-            }
-        }
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.row < controller.viewModel.rowViewModels.value.count else { return }
-        let rowViewModel = controller.viewModel.rowViewModels.value[indexPath.row]
-        if let tappableRowViewModel = rowViewModel as? ViewModelActionable {
-            tappableRowViewModel.viewModelTapped?()
-        }
-        collectionView.deselectItem(at: indexPath, animated: false)
-    }
-}
-
-extension MediaListViewController: UIScrollViewDelegate, UICollectionViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let paginatableController = controller as? PaginatedMediaListController {
-            if (isScrollViewAtBottom(scrollView) && paginatableController.canLoadMore) {
-                paginatableController.loadMore()
-            }
-        }
-    }
-    
-    func isScrollViewAtBottom(_ scrollView: UIScrollView) -> Bool {
-        return scrollView.contentSize.height - scrollView.contentOffset.y <= scrollView.bounds.height
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ListViewModel {
+protocol ListViewModel: AnyObject {
     var isLoading: Observable<Bool> { get }
     var rowViewModels: Observable<[RowViewModel]> { get }
 }

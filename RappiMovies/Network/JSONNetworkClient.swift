@@ -2,7 +2,7 @@ import Foundation
 import PromiseKit
 
 struct JSONNetworkClient: NetworkClient {
-    private let timeoutInterval = 5.0
+    private let timeoutInterval = 10.0
     private let dateFormatter: DateFormatter
     private let requestHandler: URLRequestHandler
     
@@ -19,14 +19,15 @@ struct JSONNetworkClient: NetworkClient {
                     if let error = error {
                         seal.resolve(nil, error)
                     } else {
-                        guard let data = data else {
+                        guard let data = data, data.count > 0 else {
                             fatalError("Received empty data from successful response")
                         }
                         do {
                             let result = try self.decodeJSON(T.self, from:data)
                             seal.resolve(result, error)
                         } catch {
-                            fatalError("Error decoding JSON check Decodable objects")
+                            let serializer = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                            fatalError("Error decoding JSON check Decodable objects with url \(url.absoluteString) and json: \(serializer.debugDescription)")
                         }
                     }
                 }

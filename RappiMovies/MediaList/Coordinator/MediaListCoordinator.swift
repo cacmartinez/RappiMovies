@@ -9,7 +9,7 @@ class MediaListCoordinator: Coordinator {
     func start() {
         let viewController = MediaListViewController(controller: controller, delegate: self)
         viewController.title = listTitle
-        presenter.present(controller: viewController, animated: false)
+        presenter.present(controller: viewController, animated: true)
     }
     
     init(presenter: CoordinatorPresenter,

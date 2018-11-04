@@ -2,12 +2,6 @@ import Foundation
 import CoreData
 import PromiseKit
 
-enum MovieCategory: String, ListModel {
-    case Upcoming
-    case TopRated
-    case Popular
-}
-
 struct MoviesPersistanceFetcher {
     private let lifeSpan: Days = 1
     private let context: NSManagedObjectContext

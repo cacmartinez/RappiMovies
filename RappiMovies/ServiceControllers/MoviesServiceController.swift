@@ -17,12 +17,20 @@ final class MoviesServiceController: ServiceController {
     let imagesInfoService: MovieImagesInfoService
     private var listeners: [MoviesServiceControllerListener] = []
     
-    func fetchMoviePage(_ page: Int, of category: MovieCategory, ignoringPersistance: Bool = false) {
+    func fetchMoviePage(_ page: Int, of category: MovieCategory, ignoringPersistance: Bool = false, optimisticDimensions: Bool = false) {
         self.listeners.forEach { $0.moviesServiceControllerDidStartLoadingMovies() }
         configurationService.fetchConfiguration(ignoringPersistance: ignoringPersistance).then { configuration in
             return self.moviesService.fetchMoviePage(page, of: category).then { paginatedMoviesResult -> Promise<MovieResultsInfo> in
                 let imagesInfoPromises = paginatedMoviesResult.results.map { movie in
                     self.imagesInfoService.fetchImagesInfoForMovieId(movie.id)
+                }
+                if optimisticDimensions { // Used only to reduce number of requests on first screen, as we will only use the first size dimension.
+                    return imagesInfoPromises[0].map { imagesInfo -> MovieResultsInfo in
+                        let moviesWithImagesInfo = paginatedMoviesResult.results.map { ($0, imagesInfo) }
+                        let paginationInfo = paginatedMoviesResult.paginationInfo
+                        let newPaginatedResult = PaginatedResult(results: moviesWithImagesInfo, paginationInfo: paginationInfo)
+                        return (configuration, newPaginatedResult)
+                    }
                 }
                 return when(fulfilled: imagesInfoPromises).map { imagesInfos -> MovieResultsInfo in
                     let moviesWithImagesInfo = zip(paginatedMoviesResult.results, imagesInfos).map { ($0,$1) }
