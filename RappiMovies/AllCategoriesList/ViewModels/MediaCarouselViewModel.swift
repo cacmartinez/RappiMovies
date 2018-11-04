@@ -3,6 +3,7 @@ import UIKit
 class MediaCarouselViewModel: RowViewModel, ListViewModel, ViewModelActionable {
     let isLoading = Observable<Bool>(value: false)
     let rowViewModels: Observable<[RowViewModel]>
+    let supportsLoadingIndicatorCell: Bool = false
     
     let title: String
     var titleColor = AppColors.listCellColor

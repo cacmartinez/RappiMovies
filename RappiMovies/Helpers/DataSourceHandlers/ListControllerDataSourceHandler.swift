@@ -4,12 +4,15 @@ class ListControllerDataSourceHandler: NSObject, UICollectionViewDataSource {
     weak var listViewModel: ListViewModel?
     
     var loadingCellIndexPath: IndexPath {
-        guard let listViewModel = listViewModel else { return IndexPath(row: 0, section: 0) }
+        guard let listViewModel = listViewModel else { return IndexPath(row: Int.max, section: Int.max) }
         return IndexPath(row: listViewModel.rowViewModels.value.count, section: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let listViewModel = listViewModel else { return 0 }
+        if !listViewModel.supportsLoadingIndicatorCell {
+            return listViewModel.rowViewModels.value.count
+        }
         let countOfLoadingCell = listViewModel.isLoading.value ? 1 : 0
         return listViewModel.rowViewModels.value.count + countOfLoadingCell
     }

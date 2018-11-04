@@ -67,8 +67,10 @@ class MediaListViewController: UIViewController {
     private func setupBindings() {
         controller.errorLoading = { [weak self] error in
             guard let self = self else { return }
-            UIView.performWithoutAnimation {
-                self.contentView.collectionView.deleteItems(at: [self.loadingCellIndexPath])
+            if self.controller.viewModel.supportsLoadingIndicatorCell {
+                UIView.performWithoutAnimation {
+                    self.contentView.collectionView.deleteItems(at: [self.loadingCellIndexPath])
+                }
             }
             // TODO: show error alert.
         }
@@ -85,7 +87,9 @@ class MediaListViewController: UIViewController {
             let indexPaths = self.indexPathsFromIndices(of: addedValues, withRowOffset: oldRowValueCount)
             UIView.performWithoutAnimation {
                 self.contentView.collectionView.performBatchUpdates({
-                    self.contentView.collectionView.deleteItems(at: [oldLoadingCellIndexPath])
+                    if self.controller.viewModel.supportsLoadingIndicatorCell {
+                        self.contentView.collectionView.deleteItems(at: [oldLoadingCellIndexPath])
+                    }
                     self.contentView.collectionView.insertItems(at: indexPaths)
                 }, completion: nil)
             }
@@ -93,7 +97,7 @@ class MediaListViewController: UIViewController {
         
         controller.viewModel.isLoading.addObserver(fireNow: false) { [weak self] isLoading in
             guard let self = self else { return }
-            if isLoading {
+            if isLoading && self.controller.viewModel.supportsLoadingIndicatorCell {
                 UIView.performWithoutAnimation {
                     self.contentView.collectionView.insertItems(at: [self.loadingCellIndexPath])
                 }
