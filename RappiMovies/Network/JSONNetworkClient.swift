@@ -19,7 +19,7 @@ struct JSONNetworkClient: NetworkClient {
                     if let error = error {
                         seal.resolve(nil, error)
                     } else {
-                        guard let data = data, data.count > 0 else {
+                        guard let data = data, !data.isEmpty else {
                             fatalError("Received empty data from successful response")
                         }
                         do {
