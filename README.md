@@ -1,1 +1,22 @@
 # RappiMovies
+
+###Capas de la aplicación
+
+La aplicación usa una versión modificada mvvm-c. A continuación se describen las capas.
+
+1. Coordinators : Se encargan de la navegación en el app. Reaccionan a los delegados de los view controllers para saber a donde dirigir al usuario.
+2. View Controllers/ Views : Tanto view controllers, como los views se puede decir que estan bajo la misma capa, ya que tienen una dependencia horizontal. Los views configuran todo acerca de la vista principal de la pantalla a mostrar en un controlador. El view controller se encarga de añadir los bindings necesarios, para que cambios de un controlador sean reflejados en la vista, e igualmente interacciones con la vista sean informados al controlador.
+3. Controllers : Los controladores se encargan de hacer la peticion de datos a los service controllers, e informar a los view models de la información recibida para actualizarse. Los view controllers, y controllers llevan una relacion uno a uno (cada view controller tiene su propio controlador).
+4. ServiceControllers: Los service controllers son una capa creada por la necesidad de que para algunas peticiones se necesita usar varios servicios y sincronizarlos. Ellos llevan esta responsabilidad e informan a aquellas clases que se registren para observar los resultados.
+5. Services: Los services se encargan de buscar la información de la fuente correcta. Esto es buscan si la información se encuentra en el fetcher de persistencia, o si no hace una peticion al network fetcher para obtener los datos.
+6. Fetchers (persistencia, network): En esta capa residen tanto los fetchers de persistencia, como los de networking. Su funcion es abstraer el tipo de cliente, o librerias a usar para pedir los datos de forma que si en un futuro se opta por una alternativa, sea facil de ser cambiada.
+7. Models y ManagedModels: Los modelos contienen la representacion logica de nuestra información. Se tienen dos versiones separadas para que no se filtren detalles de implementacion a capas superiores, debido a la dependencia que existe por core data de que los modelos hereden de un ManagedObject.
+
+----
+
+1. ¿En que consiste el principio de responsabilidad unica? ¿Cual es su proposito?
+El principio de responsabilidad unica tal como su nombre dice es que cada clase o modulo debe tener una funcionalidad y debe ser responsable de solo llevar acabo esas acciones de forma encapsulada. De esta forma el codigo no termina todo enmarañado dentro de una sola clase, o una funcionalidad distribuida por todos lados de forma que genere dependencias bidireccionales o ciclicas, y sea mas facil identificar y moverse por el codigo, ademas de que se facilita la identificacion de errores. Un ejemplo comun donde ser rompe este principio es en los ViewControllers de la arquitectura mvc basica, ya que varias responsabilidades terminan cayendo dentro de ellos como son la navegacion, la comunicacion a los servicios o peor si directamente ellos piden la informacion al network api, se encargan de modificar la informacion y configurar las vistas, y eso entre otras cosas. Esto hace que los view controllers sean dificiles de testear, reusar, de cambiar orden de pantallas, etc.
+
+2. Qué características tiene, según su opinión, un “buen” código o código limpio
+
+Un buen codigo en mi opinion debe aderirse a buenas practicas como los son mantener el principio de responsabilidad unica, debe de evitar tener code smells y soluciones fragiles o lo que son llamadas hacky solutions, debe ser modularizable, reusable, debe incluir test automaticos como pueden ser las pruebas unitarias, debe estar escrito de forma que alguien que el compilador ayude lo mas posible a un developer en la forma correcta de usar tu codigo y no que necesiten saber cosas especificas del funcionamiento interno de tu clase para configurar correctamente. Debe estar bien estructurado de forma que si encuentras algun error, sea facil de encontrar las areas donde creas que puede originarse el error. Debe tener guidelines estrictos sobre la sintaxis y practicas a usar, para que cualquier persona que entre escriba codigo de forma consistente a traves del app, y sea mas facil mover personas entre proyectos. Etc.
