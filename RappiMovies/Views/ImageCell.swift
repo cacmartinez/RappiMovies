@@ -6,6 +6,7 @@ class ImageCell: UICollectionViewCell, ConfigurableCell {
     var imageViewModel: ImageViewModel?
     var heightConstraint: NSLayoutConstraint? = nil
     var aspectRatioConstraint: NSLayoutConstraint? = nil
+    var maximumHeigthConstraint: NSLayoutConstraint? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -74,7 +75,12 @@ class ImageCell: UICollectionViewCell, ConfigurableCell {
                     self.heightConstraint?.priority = .required
                     self.heightConstraint?.isActive = true
                 case .aspectRatioWithMaximumHeight(maximumHeight: let maxHeight):
-                    break
+                    if let maximumHeightConstraint = self.maximumHeigthConstraint {
+                        maximumHeightConstraint.constant = maxHeight
+                    } else {
+                        self.maximumHeigthConstraint = self.imageView.heightAnchor.constraint(lessThanOrEqualToConstant: maxHeight)
+                    }
+                    self.maximumHeigthConstraint?.isActive = true
                 }
             }
         }
@@ -95,6 +101,7 @@ class ImageCell: UICollectionViewCell, ConfigurableCell {
     }
     
     override func prepareForReuse() {
+        maximumHeigthConstraint?.isActive = false
         aspectRatioConstraint?.isActive = false
         aspectRatioConstraint = nil
         heightConstraint?.isActive = false

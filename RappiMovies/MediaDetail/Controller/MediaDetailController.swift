@@ -35,12 +35,24 @@ class MovieDetailController: MediaListController {
                 dimensionsData = ImageViewModel.DimensionsData(height: backdropInfo.height, width: backdropInfo.width, aspectRatio: backdropInfo.aspectRatio)
             }
             let backdropViewModel = ImageViewModel(dimensionsData: dimensionsData, urlData: urlData)
+            backdropViewModel.constraintPreference = .aspectRatioWithMaximumHeight(maximumHeight: 300)
             rowViewModels.append(backdropViewModel)
         }
         rowViewModels.append(TextViewModel(text: .regular(movieDetail.title)))
         rowViewModels.append(TextViewModel(text: .regular("original title: \(movieDetail.originalTitle)")))
+        rowViewModels.append(TextViewModel(text: .regular("original language: \(movieDetail.originalLanguage)")))
+        if let overview = movieDetail.overview {
+            rowViewModels.append(TextViewModel(text: .regular(overview)))
+        }
         let productionCompanies = movieDetail.productionCompanies.lazy.map({$0.name}).joined(separator: ",")
         rowViewModels.append(TextViewModel(text: .regular("production companies: \(productionCompanies)")))
+        let productionCountries = movieDetail.productionCountries.lazy.map({$0.name}).joined(separator: ",")
+        rowViewModels.append(TextViewModel(text: .regular("production countries: \(productionCountries)")))
+        if let homepage = movieDetail.homepage {
+            let homepageAttributed = NSMutableAttributedString(string: homepage.absoluteString)
+            homepageAttributed.addAttribute(.link, value: homepage, range: NSRange(location: 0, length: homepage.absoluteString.utf16.count))
+            rowViewModels.append(TextViewModel(text: .attributed(homepageAttributed)))
+        }
         viewModel.rowViewModels.value = rowViewModels
     }
 }

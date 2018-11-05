@@ -33,18 +33,6 @@ class TextCell: UICollectionViewCell, ConfigurableCell {
         textLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -layoutMargins.right).isActive = true
     }
     
-    override func updateConstraints() {
-        super.updateConstraints()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        return super.preferredLayoutAttributesFitting(layoutAttributes)
-    }
-    
     func setup(with rowViewModel: RowViewModel) {
         guard let textViewModel = rowViewModel as? TextViewModel else {
             fatalError("received unexpected view model")
