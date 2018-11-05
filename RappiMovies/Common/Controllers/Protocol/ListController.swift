@@ -1,16 +1,16 @@
 import Foundation
 
-protocol MediaListController {
+protocol ListController {
     var viewModel: ListViewModel { get }
     var errorLoading: ((Error)->Void)? { get set }
-    var mediaTapped: ((ListModel)->())? { get set }
+    var listModelTapped: ((ListModel)->())? { get set }
     var newValuesAdded: ((_ values: [RowViewModel], _ addedValues: [RowViewModel])->Void)? { get set }
     
     func removeObservations()
     func start()
 }
 
-protocol PaginatedMediaListController: MediaListController {
+protocol PaginatedListController: ListController {
     var canLoadMore: Bool { get }
     func loadMore()
 }

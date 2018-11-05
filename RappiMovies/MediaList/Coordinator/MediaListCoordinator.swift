@@ -4,18 +4,18 @@ class MediaListCoordinator: Coordinator {
     let presenter: CoordinatorPresenter
     let appContext: AppContext
     let listTitle: String
-    let controller: MediaListController
+    let controller: ListController
     var childCoordinator: Coordinator?
     
     func start() {
-        let viewController = MediaListViewController(controller: controller, delegate: self)
+        let viewController = ListViewController(controller: controller, delegate: self)
         viewController.title = listTitle
         presenter.present(controller: viewController, animated: true)
     }
     
     init(presenter: CoordinatorPresenter,
          context: AppContext,
-         controller: MediaListController,
+         controller: ListController,
          listTitle: String) {
         self.presenter = presenter
         self.appContext = context
@@ -24,9 +24,9 @@ class MediaListCoordinator: Coordinator {
     }
 }
 
-extension MediaListCoordinator: MediaListViewControllerDelegate {
-    func didSelectMedia(_ media: ListModel) {
-        guard let mediaModel = media as? MediaListModel else {
+extension MediaListCoordinator: ListViewControllerDelegate {
+    func didSelectListModel(_ model: ListModel) {
+        guard let mediaModel = model as? MediaListModel else {
             fatalError("unexpected model sent to coordinator")
         }
         let detailController = MovieDetailController(movieId: mediaModel.id, moviesServiceController: appContext.moviesServiceController)

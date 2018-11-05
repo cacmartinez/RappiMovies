@@ -3,7 +3,7 @@ import UIKit
 class MediaDetailCoordinator: Coordinator {
     let presenter: CoordinatorPresenter
     let appContext: AppContext
-    let detailController: MediaListController
+    let detailController: ListController
     let title: String
     
     func start() {
@@ -14,7 +14,7 @@ class MediaDetailCoordinator: Coordinator {
     
     init(presenter: CoordinatorPresenter,
          context: AppContext,
-         detailController: MediaListController,
+         detailController: ListController,
          title: String) {
         self.presenter = presenter
         self.appContext = context

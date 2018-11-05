@@ -1,12 +1,12 @@
 import Foundation
 
-class CategoriesListController: MediaListController {
+class CategoriesListController: ListController {
     var categoriesViewModel: CategoriesListViewModel
     var viewModel: ListViewModel {
         return categoriesViewModel
     }
     var errorLoading: ((Error) -> Void)?
-    var mediaTapped: ((ListModel) -> ())?
+    var listModelTapped: ((ListModel) -> ())?
     var newValuesAdded: (([RowViewModel], [RowViewModel]) -> Void)?
     let moviesServiceController: MoviesServiceController
     
@@ -36,7 +36,7 @@ class CategoriesListController: MediaListController {
         self.categoriesViewModel.categoriesCarrousels.forEach { category, viewModel in
             viewModel.carouselDataSource = ListControllerDataSourceHandler(listViewModel: viewModel)
             viewModel.viewModelTapped = { [weak self] in
-                self?.mediaTapped?(category)
+                self?.listModelTapped?(category)
             }
         }
     }
@@ -50,7 +50,7 @@ class CategoriesListController: MediaListController {
             guard let imageViewModel = imageViewModel as? ImageViewModel else { fatalError("Unexpected model in list") }
             let (movieAbstract, _) = movieModelImageInfo
             imageViewModel.viewModelTapped = { [weak self] in
-                self?.mediaTapped?(movieAbstract)
+                self?.listModelTapped?(movieAbstract)
             }
             if let posterPath = movieAbstract.posterPath {
                 imageViewModel.urlData.value = ImageViewModel.URLData(imagePath: posterPath, urlProvider: urlProvider)

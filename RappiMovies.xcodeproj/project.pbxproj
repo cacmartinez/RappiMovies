@@ -18,7 +18,7 @@
 		7720CF2C218F94F6001E2A42 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720CF2B218F94F6001E2A42 /* ListModel.swift */; };
 		7720CF2E218FD3AB001E2A42 /* TextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720CF2D218FD3AB001E2A42 /* TextViewModel.swift */; };
 		7720CF30218FD3F3001E2A42 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720CF2F218FD3F3001E2A42 /* TextCell.swift */; };
-		772FA6E32188C2D40020EAB1 /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E22188C2D40020EAB1 /* MediaListView.swift */; };
+		772FA6E32188C2D40020EAB1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E22188C2D40020EAB1 /* ListView.swift */; };
 		772FA6E52188C6890020EAB1 /* MediaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E42188C6890020EAB1 /* MediaListCell.swift */; };
 		772FA6E82188C7530020EAB1 /* CellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E72188C7530020EAB1 /* CellExtensions.swift */; };
 		772FA6EA2188C7CF0020EAB1 /* RowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772FA6E92188C7CF0020EAB1 /* RowViewModel.swift */; };
@@ -30,7 +30,7 @@
 		774380802187ED56006F6243 /* MediaListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743807F2187ED56006F6243 /* MediaListCoordinator.swift */; };
 		774380832187F0C3006F6243 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380822187F0C3006F6243 /* AppColors.swift */; };
 		774380852187F299006F6243 /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380842187F299006F6243 /* MovieListController.swift */; };
-		774380882187F2D1006F6243 /* MediaListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380872187F2D1006F6243 /* MediaListController.swift */; };
+		774380882187F2D1006F6243 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774380872187F2D1006F6243 /* ListController.swift */; };
 		7743808B2187F3C4006F6243 /* MediaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743808A2187F3C4006F6243 /* MediaListViewModel.swift */; };
 		7743808E2187FA43006F6243 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743808D2187FA43006F6243 /* Observable.swift */; };
 		774380902187FD8E006F6243 /* MediaListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743808F2187FD8E006F6243 /* MediaListRowViewModel.swift */; };
@@ -38,8 +38,7 @@
 		7743809521880C83006F6243 /* ViewModelActionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743809421880C83006F6243 /* ViewModelActionable.swift */; };
 		7743809921880DAD006F6243 /* MoviesServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7743809821880DAD006F6243 /* MoviesServiceController.swift */; };
 		7798E3C021838188002AE2E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3BF21838188002AE2E8 /* AppDelegate.swift */; };
-		7798E3C221838188002AE2E8 /* MediaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C121838188002AE2E8 /* MediaListViewController.swift */; };
-		7798E3C521838189002AE2E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3C321838188002AE2E8 /* Main.storyboard */; };
+		7798E3C221838188002AE2E8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C121838188002AE2E8 /* ListViewController.swift */; };
 		7798E3C821838189002AE2E8 /* RappiMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7798E3C621838189002AE2E8 /* RappiMovies.xcdatamodeld */; };
 		7798E3CA2183818E002AE2E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3C92183818E002AE2E8 /* Assets.xcassets */; };
 		7798E3CD2183818E002AE2E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7798E3CB2183818E002AE2E8 /* LaunchScreen.storyboard */; };
@@ -129,7 +128,7 @@
 		7720CF2B218F94F6001E2A42 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		7720CF2D218FD3AB001E2A42 /* TextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModel.swift; sourceTree = "<group>"; };
 		7720CF2F218FD3F3001E2A42 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		772FA6E22188C2D40020EAB1 /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
+		772FA6E22188C2D40020EAB1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		772FA6E42188C6890020EAB1 /* MediaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCell.swift; sourceTree = "<group>"; };
 		772FA6E72188C7530020EAB1 /* CellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExtensions.swift; sourceTree = "<group>"; };
 		772FA6E92188C7CF0020EAB1 /* RowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowViewModel.swift; sourceTree = "<group>"; };
@@ -141,7 +140,7 @@
 		7743807F2187ED56006F6243 /* MediaListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCoordinator.swift; sourceTree = "<group>"; };
 		774380822187F0C3006F6243 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		774380842187F299006F6243 /* MovieListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
-		774380872187F2D1006F6243 /* MediaListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListController.swift; sourceTree = "<group>"; };
+		774380872187F2D1006F6243 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		7743808A2187F3C4006F6243 /* MediaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewModel.swift; sourceTree = "<group>"; };
 		7743808D2187FA43006F6243 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		7743808F2187FD8E006F6243 /* MediaListRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListRowViewModel.swift; sourceTree = "<group>"; };
@@ -150,8 +149,7 @@
 		7743809821880DAD006F6243 /* MoviesServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServiceController.swift; sourceTree = "<group>"; };
 		7798E3BC21838188002AE2E8 /* RappiMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7798E3BF21838188002AE2E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7798E3C121838188002AE2E8 /* MediaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewController.swift; sourceTree = "<group>"; };
-		7798E3C421838188002AE2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7798E3C121838188002AE2E8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		7798E3C721838189002AE2E8 /* RappiMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RappiMovies.xcdatamodel; sourceTree = "<group>"; };
 		7798E3C92183818E002AE2E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7798E3CC2183818E002AE2E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -279,6 +277,30 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		7720CF312190AC84001E2A42 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7720CF322190AF5B001E2A42 /* Controllers */,
+				7798E3E2218392A1002AE2E8 /* Models */,
+				7743809721880D5F006F6243 /* ServiceControllers */,
+				7798E3FB2183CA53002AE2E8 /* Services */,
+				77D2B864218D35A400F3ADC2 /* Views */,
+				7798E41D2184E159002AE2E8 /* Fetchers */,
+				77E9D0AD2186D1F300B4907A /* ManagedObjects */,
+				77D2B867218D35D600F3ADC2 /* ViewModels */,
+				774380742187E6A8006F6243 /* ViewControllers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7720CF322190AF5B001E2A42 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				774380862187F2B4006F6243 /* Protocol */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		772FA6E62188C71B0020EAB1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +315,6 @@
 				774380892187F34D006F6243 /* ViewModels */,
 				774380762187E6E4006F6243 /* Coordinator */,
 				774380752187E6B1006F6243 /* Views */,
-				774380742187E6A8006F6243 /* ViewControllers */,
 				774380732187E69F006F6243 /* Controllers */,
 			);
 			path = MediaList;
@@ -302,7 +323,6 @@
 		774380732187E69F006F6243 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				774380862187F2B4006F6243 /* Protocol */,
 				774380842187F299006F6243 /* MovieListController.swift */,
 			);
 			path = Controllers;
@@ -311,7 +331,7 @@
 		774380742187E6A8006F6243 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7798E3C121838188002AE2E8 /* MediaListViewController.swift */,
+				7798E3C121838188002AE2E8 /* ListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -319,7 +339,6 @@
 		774380752187E6B1006F6243 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				772FA6E22188C2D40020EAB1 /* MediaListView.swift */,
 				772FA6E42188C6890020EAB1 /* MediaListCell.swift */,
 				77D2B858218BCE4200F3ADC2 /* LoadingCell.swift */,
 			);
@@ -345,7 +364,7 @@
 		774380862187F2B4006F6243 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				774380872187F2D1006F6243 /* MediaListController.swift */,
+				774380872187F2D1006F6243 /* ListController.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -406,21 +425,14 @@
 		7798E3BE21838188002AE2E8 /* RappiMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7720CF312190AC84001E2A42 /* Common */,
 				7720CF13218F5A7C001E2A42 /* MediaDetail */,
 				77D2B85D218D331C00F3ADC2 /* AllCategoriesList */,
 				774380722187E68A006F6243 /* MediaList */,
-				77D2B867218D35D600F3ADC2 /* ViewModels */,
-				77D2B864218D35A400F3ADC2 /* Views */,
-				77E9D0AD2186D1F300B4907A /* ManagedObjects */,
 				7798E4232184E4F1002AE2E8 /* Persistance */,
-				7798E41D2184E159002AE2E8 /* Fetchers */,
-				7798E3FF2183D7AC002AE2E8 /* Helpers */,
-				7743809721880D5F006F6243 /* ServiceControllers */,
-				7798E3FB2183CA53002AE2E8 /* Services */,
 				7798E3E92183A51A002AE2E8 /* Network */,
-				7798E3E2218392A1002AE2E8 /* Models */,
+				7798E3FF2183D7AC002AE2E8 /* Helpers */,
 				7798E3BF21838188002AE2E8 /* AppDelegate.swift */,
-				7798E3C321838188002AE2E8 /* Main.storyboard */,
 				7798E3C92183818E002AE2E8 /* Assets.xcassets */,
 				7798E3CB2183818E002AE2E8 /* LaunchScreen.storyboard */,
 				7798E3CE2183818E002AE2E8 /* Info.plist */,
@@ -684,6 +696,7 @@
 		77D2B864218D35A400F3ADC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				772FA6E22188C2D40020EAB1 /* ListView.swift */,
 				77D2B865218D35CE00F3ADC2 /* ImageCell.swift */,
 				7720CF2F218FD3F3001E2A42 /* TextCell.swift */,
 			);
@@ -830,7 +843,6 @@
 			files = (
 				7798E3CD2183818E002AE2E8 /* LaunchScreen.storyboard in Resources */,
 				7798E3CA2183818E002AE2E8 /* Assets.xcassets in Resources */,
-				7798E3C521838189002AE2E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,20 +978,20 @@
 				7720CF1F218F6119001E2A42 /* MediaDetailViewModel.swift in Sources */,
 				77D2B869218D360700F3ADC2 /* ImageViewModel.swift in Sources */,
 				7798E43D2186546F002AE2E8 /* MovieManagedExtension.swift in Sources */,
-				774380882187F2D1006F6243 /* MediaListController.swift in Sources */,
+				774380882187F2D1006F6243 /* ListController.swift in Sources */,
 				7720CF19218F5E8B001E2A42 /* MediaDetailViewController.swift in Sources */,
 				7798E3FD2183D6D6002AE2E8 /* TMDBURLProviderProtocol.swift in Sources */,
 				77A70CCB2186D69700A91307 /* MoviesService.swift in Sources */,
 				774380802187ED56006F6243 /* MediaListCoordinator.swift in Sources */,
 				7798E4172184D8A1002AE2E8 /* Result.swift in Sources */,
 				77C270992187BB2E00E2A96F /* Expirable.swift in Sources */,
-				7798E3C221838188002AE2E8 /* MediaListViewController.swift in Sources */,
+				7798E3C221838188002AE2E8 /* ListViewController.swift in Sources */,
 				7798E3E421839357002AE2E8 /* MovieAbstract.swift in Sources */,
 				77AF4584218E0FF400F86C87 /* ListControllerDelegateHandler.swift in Sources */,
 				77D2B866218D35CE00F3ADC2 /* ImageCell.swift in Sources */,
 				7743809521880C83006F6243 /* ViewModelActionable.swift in Sources */,
 				772FA6E52188C6890020EAB1 /* MediaListCell.swift in Sources */,
-				772FA6E32188C2D40020EAB1 /* MediaListView.swift in Sources */,
+				772FA6E32188C2D40020EAB1 /* ListView.swift in Sources */,
 				7798E3F12183A5F1002AE2E8 /* URLRequestHandler.swift in Sources */,
 				774380852187F299006F6243 /* MovieListController.swift in Sources */,
 				772FA6E82188C7530020EAB1 /* CellExtensions.swift in Sources */,
@@ -1058,14 +1070,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7798E3C321838188002AE2E8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7798E3C421838188002AE2E8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7798E3CB2183818E002AE2E8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

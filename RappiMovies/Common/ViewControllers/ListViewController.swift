@@ -1,13 +1,13 @@
 import UIKit
 
-protocol MediaListViewControllerDelegate: AnyObject {
-    func didSelectMedia(_ media: ListModel)
+protocol ListViewControllerDelegate: AnyObject {
+    func didSelectListModel(_ model: ListModel)
 }
 
-class MediaListViewController: UIViewController {
-    private var controller: MediaListController!
-    let contentView: MediaListView
-    private weak var delegate: MediaListViewControllerDelegate?
+class ListViewController: UIViewController {
+    private var controller: ListController!
+    let contentView: ListView
+    private weak var delegate: ListViewControllerDelegate?
     private var delegateHandler: ListControllerDelegateHandler?
     private var dataSourceHandler: ListControllerDataSourceHandler?
     private var controllerStarted = false
@@ -16,9 +16,9 @@ class MediaListViewController: UIViewController {
         return IndexPath(row: controller.viewModel.rowViewModels.value.count, section: 0)
     }
 
-    init(controller: MediaListController, delegate: MediaListViewControllerDelegate) {
+    init(controller: ListController, delegate: ListViewControllerDelegate) {
         self.delegate = delegate
-        contentView = MediaListView()
+        contentView = ListView()
         self.controller = controller
         super.init(nibName: nil, bundle: nil)
         setupContentView()
@@ -27,7 +27,7 @@ class MediaListViewController: UIViewController {
     
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
-        contentView = MediaListView()
+        contentView = ListView()
         self.controller = nil
         super.init(coder: aDecoder)
         setupContentView()
@@ -37,7 +37,7 @@ class MediaListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let paginatableController = controller as? PaginatedMediaListController {
+        if let paginatableController = controller as? PaginatedListController {
             delegateHandler = ListControllerDelegateHandler(listViewModel: controller.viewModel, paginationHandler: {
                 if paginatableController.canLoadMore {
                     paginatableController.loadMore()
@@ -104,8 +104,8 @@ class MediaListViewController: UIViewController {
             }
         }
         
-        controller.mediaTapped = { [weak self] mediaTapped in
-            self?.delegate?.didSelectMedia(mediaTapped)
+        controller.listModelTapped = { [weak self] modelTapped in
+            self?.delegate?.didSelectListModel(modelTapped)
         }
     }
     

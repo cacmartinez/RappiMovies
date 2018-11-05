@@ -1,13 +1,13 @@
 import Foundation
 
-class MovieListController: PaginatedMediaListController {
+class MovieListController: PaginatedListController {
     let viewModel: ListViewModel = MediaListViewModel()
     private let moviesServiceController: MoviesServiceController
     private let category: MovieCategory
     private let dateFormatter: DateFormatter
     private var lastPageLoaded = 0
     private var totalPages = 0
-    var mediaTapped: ((ListModel)->())?
+    var listModelTapped: ((ListModel)->())?
     var errorLoading: ((Error)->Void)?
     var newValuesAdded: ((_ values: [RowViewModel], _ addedValues: [RowViewModel]) -> Void)?
     var canLoadMore: Bool = false
@@ -44,7 +44,7 @@ class MovieListController: PaginatedMediaListController {
         for (movieModel, imagesInfo) in movieModelsImageInfoMap {
             let viewModel = MediaListRowViewModel(mediaListModel: movieModel, imagesInfo: imagesInfo, imageURLProvider: imageURLProvider, dateFormatter: dateFormatter)
             viewModel.viewModelTapped = { [weak self] in
-                self?.mediaTapped?(movieModel)
+                self?.listModelTapped?(movieModel)
             }
             newValues.append(viewModel)
         }

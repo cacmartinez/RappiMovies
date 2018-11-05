@@ -3,12 +3,12 @@ import UIKit
 class CategoriesListCoordinator: Coordinator {
     let presenter: CoordinatorPresenter
     let appContext: AppContext
-    let controller: MediaListController
+    let controller: ListController
     private var coordinatorViewController: UIViewController!
     private var childCoordinator: Coordinator?
     
     func start() {
-        coordinatorViewController = MediaListViewController(controller: controller, delegate: self)
+        coordinatorViewController = ListViewController(controller: controller, delegate: self)
         coordinatorViewController.title = "Movie Categories"
         presenter.present(controller: coordinatorViewController, animated: false)
     }
@@ -21,10 +21,10 @@ class CategoriesListCoordinator: Coordinator {
     }
 }
 
-extension CategoriesListCoordinator: MediaListViewControllerDelegate {
-    func didSelectMedia(_ media: ListModel) {
+extension CategoriesListCoordinator: ListViewControllerDelegate {
+    func didSelectListModel(_ model: ListModel) {
         childCoordinator = nil
-        switch media {
+        switch model {
         case let category as MovieCategory:
             let controller = MovieListController(moviesServiceController: appContext.moviesServiceController, category: category, dateFormatter: appContext.dateFormatter)
             childCoordinator = MediaListCoordinator(presenter: presenter,

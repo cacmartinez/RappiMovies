@@ -1,6 +1,6 @@
 import UIKit
 
-class MediaListView: UIView {
+class ListView: UIView {
     let collectionView: UICollectionView
     let collectionViewLayout = UICollectionViewFlowLayout()
     

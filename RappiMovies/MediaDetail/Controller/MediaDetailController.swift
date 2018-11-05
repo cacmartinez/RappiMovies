@@ -1,10 +1,10 @@
 import Foundation
 
-class MovieDetailController: MediaListController {
+class MovieDetailController: ListController {
     var viewModel: ListViewModel = MediaDetailViewModel()
     
     var errorLoading: ((Error) -> Void)?
-    var mediaTapped: ((ListModel) -> ())?
+    var listModelTapped: ((ListModel) -> ())?
     var newValuesAdded: (([RowViewModel], [RowViewModel]) -> Void)?
     private let moviesServiceController: MoviesServiceController
     private let movieId: Int

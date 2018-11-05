@@ -1,13 +1,13 @@
 import UIKit
 
 class MediaDetailViewController: UIViewController {
-    let controller: MediaListController!
+    let controller: ListController!
     var controllerStarted = false
-    let contentView = MediaListView()
+    let contentView = ListView()
     let loadingIndicatorView = UIActivityIndicatorView(style: .white)
     private var dataSourceHandler: ListControllerDataSourceHandler?
     
-    init(detailController: MediaListController) {
+    init(detailController: ListController) {
         controller = detailController
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = AppColors.backgroundColor
