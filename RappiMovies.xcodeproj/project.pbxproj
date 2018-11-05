@@ -340,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				772FA6E42188C6890020EAB1 /* MediaListCell.swift */,
-				77D2B858218BCE4200F3ADC2 /* LoadingCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -696,6 +695,7 @@
 		77D2B864218D35A400F3ADC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				77D2B858218BCE4200F3ADC2 /* LoadingCell.swift */,
 				772FA6E22188C2D40020EAB1 /* ListView.swift */,
 				77D2B865218D35CE00F3ADC2 /* ImageCell.swift */,
 				7720CF2F218FD3F3001E2A42 /* TextCell.swift */,

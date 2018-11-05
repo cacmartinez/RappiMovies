@@ -24,7 +24,7 @@ class MediaListCell: UICollectionViewCell, ConfigurableCell {
     var titleLabelConstraints: [NSLayoutConstraint] {
         return [
             titleLabel.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: objectSpacing),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: layoutMargins.right),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -layoutMargins.right),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: layoutMargins.top)
         ]
     }
