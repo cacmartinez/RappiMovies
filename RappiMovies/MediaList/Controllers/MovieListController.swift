@@ -13,7 +13,7 @@ class MovieListController: PaginatedMediaListController {
     var canLoadMore: Bool = false
     
     func removeObservations() {
-        self.moviesServiceController.removeListener(listener: self)
+        self.moviesServiceController.removeMovieListListener(self)
     }
     
     func start() {
@@ -36,7 +36,7 @@ class MovieListController: PaginatedMediaListController {
         self.moviesServiceController = moviesServiceController
         self.category = category
         self.dateFormatter = dateFormatter
-        self.moviesServiceController.addListener(listener: self)
+        self.moviesServiceController.addMovieListListener(self)
     }
     
     private func updateRowModels(with movieModelsImageInfoMap: [(MovieAbstract, MediaImagesInfo)], imageURLProvider: ImageURLProvider) {
@@ -53,14 +53,14 @@ class MovieListController: PaginatedMediaListController {
     }
 }
 
-extension MovieListController: MoviesServiceControllerListener {
-    func moviesServiceControllerDidStartLoadingMovies() {
+extension MovieListController: MoviesServiceControllerMovieListListener {
+    func moviesServiceControllerDidStartLoadingMovieList() {
         if !viewModel.isLoading.value {
             viewModel.isLoading.value = true
         }
     }
     
-    func moviesServiceControllerDidFinishLoadingMovies() {
+    func moviesServiceControllerDidFinishLoadingMovieList() {
         if viewModel.isLoading.value {
             viewModel.isLoading.value = false
         }

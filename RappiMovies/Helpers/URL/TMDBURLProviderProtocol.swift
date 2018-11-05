@@ -6,6 +6,7 @@ enum TMDBEndpoint {
     case topRatedMovies(page: URLPage)
     case upcomingMovies(page: URLPage)
     case movieImagesInfo(movieId: Int)
+    case movieDetail(movieId: Int)
     
     var path: String {
         switch self {
@@ -19,6 +20,8 @@ enum TMDBEndpoint {
             return "/movie/upcoming"
         case .movieImagesInfo(movieId: let movieId):
             return "/movie/\(movieId)/images"
+        case .movieDetail(movieId: let movieId):
+            return "/movie/\(movieId)"
         }
     }
     
@@ -34,6 +37,8 @@ enum TMDBEndpoint {
             return page.queryParameters
         case .movieImagesInfo:
             return [:]
+        case .movieDetail:
+            return ["append_to_response":"images,videos"]
         }
     }
 }

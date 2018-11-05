@@ -18,6 +18,11 @@ struct MoviesNetworkFetcher: NetworkFetcher {
         return networkClient.get(url: url)
     }
     
+    func fetchMovieDetailForMovieId(_ movieId: Int) -> Promise<MovieDetail> {
+        let url = urlProvider.url(for: .movieDetail(movieId: movieId))
+        return networkClient.get(url: url)
+    }
+    
     init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol) {
         self.networkClient = networkClient
         self.urlProvider = urlProvider

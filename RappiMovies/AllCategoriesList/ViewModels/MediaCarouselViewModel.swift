@@ -18,8 +18,10 @@ class MediaCarouselViewModel: RowViewModel, ListViewModel, ViewModelActionable {
     init(title: String, numberOfElements: Int, dimensionData: ImageViewModel.DimensionsData) {
         self.title = title
         
-        let imageViewModels = (1...numberOfElements).map { _ in
-            return ImageViewModel(dimensionsData: dimensionData)
+        let imageViewModels = (1...numberOfElements).map { _ -> ImageViewModel in
+            let imageViewModel = ImageViewModel(dimensionsData: dimensionData)
+            imageViewModel.constraintPreference = .constantHeight
+            return imageViewModel
         }
         
         self.rowViewModels = Observable.init(value: imageViewModels)

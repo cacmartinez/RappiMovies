@@ -1,15 +1,16 @@
-import Foundation
+import UIKit
 
 class CategoriesListCoordinator: Coordinator {
     let presenter: CoordinatorPresenter
     let appContext: AppContext
     let controller: MediaListController
+    private var coordinatorViewController: UIViewController!
     private var childCoordinator: Coordinator?
     
     func start() {
-        let viewController = MediaListViewController(controller: controller, delegate: self)
-        viewController.title = "Movie Categories"
-        presenter.present(controller: viewController, animated: false)
+        coordinatorViewController = MediaListViewController(controller: controller, delegate: self)
+        coordinatorViewController.title = "Movie Categories"
+        presenter.present(controller: coordinatorViewController, animated: false)
     }
     
     init(presenter: CoordinatorPresenter,
@@ -31,7 +32,12 @@ extension CategoriesListCoordinator: MediaListViewControllerDelegate {
                                         controller: controller,
                                         listTitle: category.rawValue)
         case let movie as MovieAbstract:
-        // TODO: navigate to movie detail.
+            let detailController = MovieDetailController(movieId: movie.id, moviesServiceController: appContext.moviesServiceController)
+            let presenter = ViewControllerPresenter(presentingController: coordinatorViewController, wrapsPresentedInNavigation: true)
+            childCoordinator = MediaDetailCoordinator(presenter: presenter,
+                                                      context: appContext,
+                                                      detailController: detailController,
+                                                      title: movie.title)
             break
         default:
             fatalError("navigation not handled for selected model type")

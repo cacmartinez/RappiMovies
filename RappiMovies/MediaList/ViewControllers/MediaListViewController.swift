@@ -38,7 +38,7 @@ class MediaListViewController: UIViewController {
         super.viewDidLoad()
         
         if let paginatableController = controller as? PaginatedMediaListController {
-            delegateHandler = ListControllerDelegateHandler(paginationHandler: {
+            delegateHandler = ListControllerDelegateHandler(listViewModel: controller.viewModel, paginationHandler: {
                 if paginatableController.canLoadMore {
                     paginatableController.loadMore()
                 }

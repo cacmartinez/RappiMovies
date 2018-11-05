@@ -2,7 +2,14 @@ import Foundation
 import CoreData
 import PromiseKit
 
-struct MoviesPersistanceFetcher {
+protocol MoviesPersistanceFetcherProtocol {
+    func fetchMoviePageResult(_ page: Int, of category: MovieCategory) -> Promise<PaginatedResult<[MovieAbstract]>?>
+    func fetchMovieDetailForMovieId(_ movieId: Int) -> Promise<MovieDetail?>
+    func add(_ paginatedMovieResults: PaginatedResult<[MovieAbstract]>, to category: MovieCategory)
+    func add(_ movieDetail: MovieDetail)
+}
+
+struct MoviesPersistanceFetcher: MoviesPersistanceFetcherProtocol {
     private let lifeSpan: Days = 1
     private let context: NSManagedObjectContext
     
@@ -59,6 +66,11 @@ struct MoviesPersistanceFetcher {
         }
     }
     
+    func fetchMovieDetailForMovieId(_ movieId: Int) -> Promise<MovieDetail?> {
+        // TODO: fetch movie detail from persistance.
+        return Promise.value(nil)
+    }
+    
     func add(_ paginatedMovieResults: PaginatedResult<[MovieAbstract]>, to category: MovieCategory) {
         guard !paginatedMovieResults.results.isEmpty else { return }
         do {
@@ -83,8 +95,12 @@ struct MoviesPersistanceFetcher {
         }
     }
     
-    func replaceSavedMovies(with: [MovieAbstract], of category: MovieCategory) {
+    func add(_ movieDetail: MovieDetail) {
         
+    }
+    
+    func replaceSavedMovies(with: [MovieAbstract], of category: MovieCategory) {
+        // TODO: replace already saved movies even if they are not expired, in case reload is implemented in the future.
     }
     
     init(context: NSManagedObjectContext) {

@@ -1,6 +1,11 @@
 import UIKit
 
 class ImageViewModel: RowViewModel, ViewModelActionable {
+    enum ConstraintPreference {
+        case constantHeight
+        case aspectRatioWithMaximumHeight(maximumHeight: CGFloat)
+    }
+    
     var viewModelTapped: (() -> Void)?
     
     struct URLData {
@@ -20,6 +25,7 @@ class ImageViewModel: RowViewModel, ViewModelActionable {
         }
     }
     
+    var constraintPreference: ConstraintPreference? = nil
     let urlData: Observable<URLData?>
     let dimensionsData: Observable<DimensionsData?>
     var imageBackgroundColor = Observable<UIColor>(value: AppColors.imageDefaultBackgroundColor)

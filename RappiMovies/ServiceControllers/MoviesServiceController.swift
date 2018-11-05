@@ -3,22 +3,29 @@ import PromiseKit
 
 typealias MovieResultsInfo = (TMDBConfiguration, PaginatedResult<[(MovieAbstract,MediaImagesInfo)]>)
 
-protocol MoviesServiceControllerListener: AnyObject {
+protocol MoviesServiceControllerMovieListListener: AnyObject {
     func didFinishFetchingMovies(fromCategory category: MovieCategory,
                                  page:Int,
                                  results:Result<MovieResultsInfo>)
-    func moviesServiceControllerDidStartLoadingMovies()
-    func moviesServiceControllerDidFinishLoadingMovies()
+    func moviesServiceControllerDidStartLoadingMovieList()
+    func moviesServiceControllerDidFinishLoadingMovieList()
 }
 
-final class MoviesServiceController: ServiceController {
+protocol MoviesServiceControllerMovieDetailListener: AnyObject {
+    func didFinishFetchingMovieDetail(with result: Result<(TMDBConfiguration, MovieDetail)>)
+    func moviesServiceControllerDidStartLoadingMovieDetail()
+    func moviesServiceControllerDidFinishLoadingMovieDetail()
+}
+
+final class MoviesServiceController {
     let configurationService: TMDBConfigurationService
     let moviesService: MoviesService
     let imagesInfoService: MovieImagesInfoService
-    private var listeners: [MoviesServiceControllerListener] = []
+    private var movieListListeners: [MoviesServiceControllerMovieListListener] = []
+    private var movieDetailListeners: [MoviesServiceControllerMovieDetailListener] = []
     
     func fetchMoviePage(_ page: Int, of category: MovieCategory, ignoringPersistance: Bool = false, optimisticDimensions: Bool = false) {
-        self.listeners.forEach { $0.moviesServiceControllerDidStartLoadingMovies() }
+        self.movieListListeners.forEach { $0.moviesServiceControllerDidStartLoadingMovieList() }
         configurationService.fetchConfiguration(ignoringPersistance: ignoringPersistance).then { configuration in
             return self.moviesService.fetchMoviePage(page, of: category).then { paginatedMoviesResult -> Promise<MovieResultsInfo> in
                 if optimisticDimensions { // Used only to reduce number of requests on first screen, as we will only use the first size dimension.
@@ -41,27 +48,57 @@ final class MoviesServiceController: ServiceController {
                 }
             }
         }.ensure {
-            self.listeners.forEach { $0.moviesServiceControllerDidFinishLoadingMovies() }
+            self.movieListListeners.forEach { $0.moviesServiceControllerDidFinishLoadingMovieList() }
         }.done { movieResultsInfo in
-            self.listeners.forEach { listener in
+            self.movieListListeners.forEach { listener in
                 listener.didFinishFetchingMovies(fromCategory: category, page: page, results: Result.Success(movieResultsInfo))
             }
         }.catch { error in
-            self.listeners.forEach { listener in
+            self.movieListListeners.forEach { listener in
                 listener.didFinishFetchingMovies(fromCategory: category, page: page, results: Result.Error(error))
             }
         }
     }
     
-    func addListener(listener: MoviesServiceControllerListener) {
-        if !listeners.contains(where: { $0 === listener }) {
-            listeners.append(listener)
+    func fetchMovieDetailForMovieId(_ movieId: Int, ignoringPersistance: Bool = false) {
+        self.movieDetailListeners.forEach { $0.moviesServiceControllerDidStartLoadingMovieDetail() }
+        configurationService.fetchConfiguration(ignoringPersistance: ignoringPersistance).then { configuration in
+            return self.moviesService.fetchMovieDetailForMovieId(movieId, ignoringPersistance: ignoringPersistance).map { movieDetail in
+                return (configuration, movieDetail)
+            }
+        }.ensure {
+            self.movieDetailListeners.forEach { $0.moviesServiceControllerDidFinishLoadingMovieDetail() }
+        }.done { (configuration, movieDetail) in
+            self.movieDetailListeners.forEach { listener in
+                listener.didFinishFetchingMovieDetail(with: Result.Success((configuration, movieDetail)))
+            }
+        }.catch { error in
+            self.movieDetailListeners.forEach { listener in
+                listener.didFinishFetchingMovieDetail(with: Result.Error(error))
+            }
         }
     }
     
-    func removeListener(listener: MoviesServiceControllerListener) {
-        guard let index = listeners.firstIndex(where: { $0 === listener }) else { return }
-        listeners.remove(at: index)
+    func addMovieListListener(_ listener: MoviesServiceControllerMovieListListener) {
+        if !movieListListeners.contains(where: { $0 === listener }) {
+            movieListListeners.append(listener)
+        }
+    }
+    
+    func removeMovieListListener(_ listener: MoviesServiceControllerMovieListListener) {
+        guard let index = movieListListeners.firstIndex(where: { $0 === listener }) else { return }
+        movieListListeners.remove(at: index)
+    }
+    
+    func addMovieDetailListener(_ listener: MoviesServiceControllerMovieDetailListener) {
+        if !movieDetailListeners.contains(where: { $0 === listener }) {
+            movieDetailListeners.append(listener)
+        }
+    }
+    
+    func removeMovieDetailListener(_ listener: MoviesServiceControllerMovieDetailListener) {
+        guard let index = movieDetailListeners.firstIndex(where: { $0 === listener }) else { return }
+        movieDetailListeners.remove(at: index)
     }
     
     init(configurationService: TMDBConfigurationService, moviesService: MoviesService, imagesInfoService: MovieImagesInfoService) {

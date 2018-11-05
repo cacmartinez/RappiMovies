@@ -34,16 +34,6 @@ class ListControllerDataSourceHandler: NSObject, UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let listViewModel = listViewModel else { return }
-        guard indexPath.row < listViewModel.rowViewModels.value.count else { return }
-        let rowViewModel = listViewModel.rowViewModels.value[indexPath.row]
-        if let tappableRowViewModel = rowViewModel as? ViewModelActionable {
-            tappableRowViewModel.viewModelTapped?()
-        }
-        collectionView.deselectItem(at: indexPath, animated: false)
-    }
-    
     init(listViewModel: ListViewModel) {
         self.listViewModel = listViewModel
     }

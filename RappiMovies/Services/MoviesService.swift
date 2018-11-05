@@ -3,7 +3,7 @@ import PromiseKit
 
 struct MoviesService {
     private let networkFetcher: MoviesNetworkFetcher
-    private let persistanceFetcher: MoviesPersistanceFetcher
+    private let persistanceFetcher: MoviesPersistanceFetcherProtocol
     
     func fetchMoviePage(_ page: Int, of category: MovieCategory, ignoringPersistance: Bool = false) -> Promise<PaginatedResult<[MovieAbstract]>> {
         let promise: Promise<PaginatedResult<[MovieAbstract]>?>
@@ -23,7 +23,26 @@ struct MoviesService {
         }
     }
     
-    init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol, fetcher: MoviesPersistanceFetcher) {
+    func fetchMovieDetailForMovieId(_ movieId: Int, ignoringPersistance: Bool) -> Promise<MovieDetail> {
+        let promise: Promise<MovieDetail?>
+        if ignoringPersistance {
+            promise = Promise.value(nil)
+        } else {
+            promise = persistanceFetcher.fetchMovieDetailForMovieId(movieId)
+        }
+        
+        return promise.then { movieDetail -> Promise<MovieDetail> in
+            if let movieDetail = movieDetail {
+                return Promise.value(movieDetail)
+            }
+            return self.networkFetcher.fetchMovieDetailForMovieId(movieId).get {
+                movieDetail in
+                self.persistanceFetcher.add(movieDetail)
+            }
+        }
+    }
+    
+    init(networkClient: NetworkClient, urlProvider: TMDBURLProviderProtocol, fetcher: MoviesPersistanceFetcherProtocol) {
         networkFetcher = MoviesNetworkFetcher(networkClient: networkClient, urlProvider: urlProvider)
         self.persistanceFetcher = fetcher
     }
